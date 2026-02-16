@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.3 134.31">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        fill: #2929e5;
+      }
+
+      .cls-5 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-6 {
+        font-family: Montserrat-Black, Montserrat;
+        font-size: 15.47px;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <text class="cls-6" transform="translate(0 126.37)"><tspan x="0" y="0">B</tspan><tspan class="cls-2" x="11.96" y="0">r</tspan><tspan x="18.55" y="0">ax</tspan><tspan class="cls-5" x="38.42" y="0">t</tspan><tspan x="45.3" y="0">on Media </tspan><tspan class="cls-3" x="126.64" y="0">C</tspan><tspan x="137.81" y="0">o</tspan></text>
+  <g>
+    <path class="cls-4" d="M49.56,19.52l55.9,30.93c10.94,6.06,11.04,21.76.17,27.94l-54.33,30.93c-10.53,5.99-23.64-1.41-23.95-13.52l-1.57-61.87c-.31-12.38,12.94-20.42,23.78-14.43Z"/>
+    <path class="cls-1" d="M54.53,9.56l55.9,30.93c10.94,6.06,11.04,21.76.17,27.94l-54.33,30.93c-10.53,5.99-23.64-1.41-23.95-13.52l-1.57-61.87c-.31-12.38,12.94-20.42,23.78-14.43Z"/>
+    <path d="M58.36,2.03l55.9,30.93c10.94,6.06,11.04,21.76.17,27.94l-54.33,30.93c-10.53,5.99-23.64-1.41-23.95-13.52l-1.57-61.87c-.31-12.38,12.94-20.42,23.78-14.43Z"/>
+  </g>
+</svg>
