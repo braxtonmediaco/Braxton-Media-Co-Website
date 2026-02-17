@@ -1,0 +1,1 @@
+## ⚖️ License & Copyright Copyright (c) 2026 Braxton Media Co. All rights reserved. This repository and its contents are proprietary. You may not: * Copy, modify, or distribute the code. * Use the design, assets, or content for your own projects. * Host a mirror of this site without express written permission.
