@@ -1,3 +1,5 @@
+<link rel="icon" type="image/svg+xml" href="logos/icon.svg">
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -5,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braxton Media Co | Kearney NE</title>
     
-    <!-- Google Analytics -->
+    <link rel="icon" type="image/svg+xml" href="logos/icon.svg">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,13 +18,10 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
     <script>
@@ -35,8 +35,7 @@
                         brand: {
                             blue: '#2A2EE5', 
                             gray: '#4F4F51', 
-                            black: '#000000',
-                            dark: '#000000',
+                            dark: '#121212',
                             accent: '#2A2EE5',
                             light: '#f8fafc',
                         }
@@ -48,7 +47,7 @@
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #4F4F51; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #2A2EE5; }
         
@@ -74,11 +73,11 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 100px rgba(18,18,18,0.9);
         }
 
         .glass {
-            background: rgba(20, 20, 20, 0.4);
+            background: rgba(30, 30, 30, 0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(79, 79, 81, 0.3);
@@ -91,22 +90,19 @@
         }
     </style>
 </head>
-<body class="bg-black text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
+<body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
 
-    <!-- Background -->
     <div class="fixed inset-0 z-0 pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[120px]"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-xl border-b border-brand-gray/30">
+    <nav class="fixed w-full z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-gray/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex-shrink-0 flex items-center cursor-pointer">
                     <a href="home" onclick="handleNavClick(event, 'home')">
-                        <!-- Updated: Responsive height (h-10 mobile, h-14 desktop) -->
-                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-10 md:h-14 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
+                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-10 ml-auto items-center">
@@ -122,31 +118,27 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="portfolio" onclick="handleNavClick(event, 'portfolio'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">Portfolio</a>
-                <a href="about" onclick="handleNavClick(event, 'about'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">About Me</a>
-                <a href="downloads" onclick="handleNavClick(event, 'downloads'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">Downloads</a>
-                <a href="contact" onclick="handleNavClick(event, 'contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 text-brand-blue font-black hover:bg-brand-gray/20 rounded-md">Contact</a>
+                <a href="portfolio" onclick="handleNavClick(event, 'portfolio')" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">Portfolio</a>
+                <a href="about" onclick="handleNavClick(event, 'about')" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">About Me</a>
+                <a href="downloads" onclick="handleNavClick(event, 'downloads')" class="block w-full text-left px-3 py-3 text-white hover:bg-brand-gray/20 rounded-md font-bold">Downloads</a>
+                <a href="contact" onclick="handleNavClick(event, 'contact')" class="block w-full text-left px-3 py-3 text-brand-blue font-black hover:bg-brand-gray/20 rounded-md">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Floating Icon -->
     <div class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
-        <!-- Updated: Responsive width/height for container and icon -->
         <a href="home" onclick="handleNavClick(event, 'home')" class="block w-12 h-12 md:w-16 md:h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40">
             <img src="logos/icon.svg" alt="Braxton Media Icon" class="w-6 h-6 md:w-10 md:h-10 object-contain">
         </a>
     </div>
 
-    <!-- Main Content -->
     <main class="pt-24 min-h-screen flex flex-col justify-between relative z-10">
         
-        <!-- HOME PAGE -->
         <section id="home" class="page-section">
             <div class="relative h-[90vh] flex items-center justify-center overflow-hidden parallax-bg rounded-b-[3rem]">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
                 <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in">
                     <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tight drop-shadow-2xl">
                         Capturing Life's <br>
@@ -162,12 +154,10 @@
                 </div>
             </div>
             
-            <!-- Service Cards -->
             <div class="py-32 relative z-20">
                 <div class="max-w-7xl mx-auto px-4 fade-in" style="animation-delay: 0.2s;">
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="p-10 glass rounded-3xl transition-all duration-500 hover:-translate-y-2 group">
-                            <!-- Updated: Responsive icon container size -->
                             <div class="w-12 h-12 md:w-16 md:h-16 bg-brand-gray/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 text-brand-blue border border-brand-gray/30">
                                 <i data-lucide="camera" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
@@ -193,28 +183,26 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO PAGE -->
         <section id="portfolio" class="page-section hidden py-12">
             <div class="max-w-7xl mx-auto px-4 fade-in">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black text-white mb-4">Our Portfolio</h2>
+                    <h2 class="text-4xl md:text-6xl font-black text-white mb-4">My Portfolio</h2>
                     <div class="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Video Section -->
                 <div class="mb-20">
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
                         <i data-lucide="film" class="mr-3 text-brand-blue"></i> Videography
                     </h3>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
-                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-black shadow-lg">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/wElhLEluNSw?si=tRWii9HdGU5Pd4t6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-lg font-bold text-white mt-4 ml-2">Kearney High State Teaser 2026</h4>
                         </div>
                         <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
-                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-black shadow-lg">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/UsyKHlzYM5w" title="Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-lg font-bold text-white mt-4 ml-2">Commercial Brand Promo</h4>
@@ -222,59 +210,40 @@
                     </div>
                 </div>
 
-                <!-- Photo Section -->
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
                         <i data-lucide="image" class="mr-3 text-brand-blue"></i> Photography Categories
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <!-- 1. Portraits -->
                         <div onclick="openGallery('portraits')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="portfolio/portrait.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Portraits">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                            <img src="portfolio/portraits/portrait.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Portraits">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Portraits</span>
                             </div>
                         </div>
 
-                        <!-- 2. Family -->
                         <div onclick="openGallery('family')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="portfolio/family.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Family">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                            <img src="portfolio/family/family.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Family">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Family</span>
                             </div>
                         </div>
 
-                        <!-- 3. Sports -->
                         <div onclick="openGallery('sports')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="portfolio/sports.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Sports">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                            <img src="portfolio/sports/sports.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Sports">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Sports</span>
                             </div>
                         </div>
 
-                        <!-- 4. Events -->
-                         <div onclick="openGallery('events')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="portfolio/events.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Events">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                        <div onclick="openGallery('events')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/events/events.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Events">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Events</span>
                             </div>
                         </div>
 
-                        <!-- 5. Weddings -->
-                        <div onclick="openGallery('weddings')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Weddings">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
-                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Weddings</span>
-                            </div>
-                        </div>
-
-                        <!-- 6. Products -->
-                        <div onclick="openGallery('products')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
-                            <img src="https://images.unsplash.com/photo-1565462908226-9f4a08579543?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Products">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
-                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Products</span>
-                            </div>
                         </div>
                         
                     </div>
@@ -282,10 +251,8 @@
             </div>
         </section>
 
-        <!-- NEW GALLERY VIEW SECTION -->
         <section id="gallery" class="page-section hidden pt-32 pb-20 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 fade-in">
-                <!-- Header -->
                 <div class="flex items-center mb-10">
                     <button onclick="handleNavClick(event, 'portfolio')" class="glass px-6 py-3 rounded-full text-white font-bold flex items-center hover:bg-brand-blue hover:border-brand-blue transition-all">
                         <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Portfolio
@@ -293,95 +260,31 @@
                     <h2 id="gallery-title" class="text-3xl md:text-5xl font-black text-white ml-6 md:ml-10 tracking-tight">Gallery Title</h2>
                 </div>
                 
-                <!-- Gallery Grid -->
                 <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Images will be injected here via JavaScript -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- DOWNLOADS PAGE -->
         <section id="downloads" class="page-section hidden py-20 min-h-[80vh]">
             <div class="max-w-3xl mx-auto px-4 fade-in">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl md:text-6xl font-black text-white mb-4">Download Links</h2>
                     <p class="text-slate-400 text-lg font-medium">Access your galleries, contracts, and resources below.</p>
                 </div>
-                <div class="space-y-4">
-                    <a href="https://photos.google.com/share/AF1QipNk--cGukggTrm-0JVT6ABEC_xOQv7XCWaWbEfQjNaLEoC1uInIYDinYGblImC-FQ?key=WGl4QmpHa2IwblVZZWxUOUlyWHpkVzhMZWMtOUp3" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/choir.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2026-02-06 Choir Concert</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="https://photos.google.com/share/AF1QipNLYRH_s-R2USKGkVipxiSO8RuiHSPi2W02foCFHKu6JuULC_Sxqx8zzzb34MHeGQ?key=djN4RE45VVAwOGhiZ1djdVBiQnB3NXlkdGpZWTVR" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/jazz_ensemble.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2025-11-26 Jazz Ensemble</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="https://photos.google.com/share/AF1QipOIirWqHqM1gn2L-wL65IwGo5gKtou6_1y44gPMln_H_SvViL0q86EZh4vFaLob7w?key=UUJMczI1YlRaNXRBZGVjLUdwUnY3WGpnYXNQR2V3" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/jazz_lab.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2025-11-26 Jazz Lab Band</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="https://photos.google.com/share/AF1QipNoC6A6GiVwqolVpZCbqmRUJiutRjVISdtiE2wNz5_TKxPHcip6DpijtqMNtx58JQ?key=d3dIN2VsOHFNRXMxaGZ2WG5fMXpXVG1rdDJucml3" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/softball.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2025-09-26 Varsity Softball</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="https://photos.google.com/share/AF1QipNKdFo7mU25ELN5cLYCN6PeaSkSFZsc8y60NVuoc2zhXIsGeyp9xAWcXU4magpv-w?key=OUpfaTdYMG4wMlhvVUo2Tl8xdlFMWDc0UVk0VzlB" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/volleyball.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2025-09-30 Varsity VB</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="https://photos.google.com/share/AF1QipMyBPJniwd1p5JZFnApPObiLTmXRvCLTc0yujwjxFS1eATaKJmy8Bn3f_BGkxraNQ?key=SVdYR3NicXk2blJlY25IZXVmZ0NkSC1MUDcxUFd3" target="_blank" class="group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
-                                <img src="downloads/volleyball_fremont.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
-                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
-                            </div>
-                            <div> <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">2026-09-09 VB Kearney High vs. Fremont</h3> <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> </div>
-                        </div>
-                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
+                
+                <div id="downloads-container" class="space-y-4">
+                    </div>
+
                 <div class="mt-12 bg-brand-gray/10 p-6 rounded-xl border border-dashed border-brand-gray/30 text-center">
                     <p class="text-slate-400 text-sm font-medium">Need a link that isn't listed here? Please contact us directly.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT, CONTACT, FOOTER SECTIONS REMAIN UNCHANGED -->
-        <!-- ABOUT PAGE -->
         <section id="about" class="page-section hidden py-20">
              <div class="max-w-6xl mx-auto px-4 fade-in">
                  <div class="grid md:grid-cols-2 gap-16 items-center">
                      <div class="relative group">
-                         <!-- Profile Image -->
                          <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-slate-800 border-2 border-brand-gray/30 shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-[0_0_40px_rgba(42,46,229,0.3)]">
                              <img src="images/me.JPG" alt="Photographer Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
                          </div>
@@ -407,14 +310,18 @@
                              </p>
                          </div>
 
-                         <!-- Logo Spot for Partners/Gear -->
                          <div class="mt-12 pt-10 border-t border-brand-gray/30">
                              <p class="text-xs text-slate-500 mb-4 uppercase tracking-[0.2em] font-bold">Trusted By</p>
-                             <div class="flex gap-4 md:gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap">
-                                 <!-- Updated: Responsive logo placeholders -->
-                                 <div class="h-6 w-20 md:h-8 md:w-24 bg-brand-gray/20 rounded flex items-center justify-center text-xs font-bold text-slate-400 border border-brand-gray/30">LOGO 1</div>
-                                 <div class="h-6 w-20 md:h-8 md:w-24 bg-brand-gray/20 rounded flex items-center justify-center text-xs font-bold text-slate-400 border border-brand-gray/30">LOGO 2</div>
-                                 <div class="h-6 w-20 md:h-8 md:w-24 bg-brand-gray/20 rounded flex items-center justify-center text-xs font-bold text-slate-400 border border-brand-gray/30">LOGO 3</div>
+                             <div class="flex gap-4 md:gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap items-center">
+                                 <a href="https://newrestle.com/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                     <img src="logos/newrestle/newrestle.svg" alt="NE Wrestle" class="h-8 md:h-12 w-auto object-contain">
+                                 </a>
+                                 <a href="https://www.cityofkearney.org/625/Police-Department" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                     <img src="logos/kpd/kpd.png" alt="KPD" class="h-8 md:h-12 w-auto object-contain">
+                                 </a>
+                                 <a href="https://holycrosskearney.org/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                     <img src="logos/holycross/holycross.png" alt="Holy Cross Kearney" class="h-8 md:h-12 w-auto object-contain">
+                                 </a>
                              </div>
                          </div>
                      </div>
@@ -422,7 +329,6 @@
              </div>
         </section>
 
-        <!-- CONTACT PAGE -->
         <section id="contact" class="page-section hidden py-20">
              <div class="max-w-4xl mx-auto px-4 fade-in">
                  <div class="text-center mb-12">
@@ -456,85 +362,103 @@
              </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="bg-black border-t border-brand-gray/30 py-12 mt-auto relative z-10">
+        <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <div class="flex justify-center items-center mb-8">
-                     <!-- Updated: Responsive Footer Logo -->
-                     <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-10 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                     <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity">
                 </div>
                 <div class="flex justify-center space-x-8 mb-8">
                     <a href="https://instagram.com/braxtonmediaco" target="_blank" class="text-slate-400 hover:text-brand-blue transition transform hover:-translate-y-1 hover:scale-110"><i data-lucide="instagram" class="w-6 h-6"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" class="text-slate-400 hover:text-brand-blue transition transform hover:-translate-y-1 hover:scale-110"><i data-lucide="facebook" class="w-6 h-6"></i></a>
                     <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" class="text-slate-400 hover:text-brand-blue transition transform hover:-translate-y-1 hover:scale-110"><i data-lucide="youtube" class="w-6 h-6"></i></a>
                 </div>
-                <p class="text-slate-600 text-sm font-medium">&copy; 2026 Braxton Media Co. All rights reserved.</p>
+                <p class="text-slate-600 text-sm font-medium">© 2026 Braxton Media Co. All rights reserved.</p>
             </div>
         </footer>
 
     </main>
 
-    <!-- Scripts -->
+    <script src="downloads.js"></script>
+
     <script>
         lucide.createIcons();
 
         // ------------------
-        // NEW: GALLERY DATA
+        // NEW: AUTO-LOAD DOWNLOAD LINKS
         // ------------------
-        // To add images: Add { src: "path/to/image.jpg" } to the specific list.
-        const portfolioData = {
+        function renderDownloadLinks() {
+            const container = document.getElementById('downloads-container');
+            if (!container) return;
+            
+            container.innerHTML = ''; 
+            
+            if (typeof downloadLinksData !== 'undefined') {
+                downloadLinksData.forEach(link => {
+                    const a = document.createElement('a');
+                    a.href = link.url;
+                    a.target = "_blank";
+                    a.className = "group flex items-center justify-between glass p-6 rounded-xl transition-all shadow-lg hover:shadow-brand-blue/20";
+                    
+                    a.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 rounded-lg mr-5 overflow-hidden border border-brand-gray/30 group-hover:border-brand-blue transition-colors">
+                                <img src="${link.image}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="w-full h-full object-cover">
+                                <div class="w-full h-full bg-brand-gray/20 flex items-center justify-center hidden text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors"> <i data-lucide="image" class="w-8 h-8"></i> </div>
+                            </div>
+                            <div> 
+                                <h3 class="text-lg font-bold text-white group-hover:text-brand-blue transition-colors">${link.title}</h3> 
+                                <p class="text-sm text-slate-400 font-medium">Download Full Resolution</p> 
+                            </div>
+                        </div>
+                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
+                    `;
+                    container.appendChild(a);
+                });
+                
+                lucide.createIcons();
+            } else {
+                container.innerHTML = '<p class="text-slate-400 text-sm font-medium text-center py-4">Please create your downloads.js file to see links here.</p>';
+            }
+        }
 
+        // ------------------
+        // GALLERY DATA
+        // ------------------
+        const portfolioData = {
             portraits: [
-                { src: "portfolio/portrait.jpg" }, 
+                { src: "portfolio/portraits/portrait.jpg" }, 
                 { src: "portfolio/portraits/portrait2.jpg" },
                 { src: "portfolio/portraits/portrait3.jpg" },
                 { src: "portfolio/portraits/portrait4.jpg" },
                 { src: "portfolio/portraits/portrait5.jpg" },
             ],
             sports: [
-                { src: "portfolio/sports.jpg" },
-                { src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80" },
+                { src: "portfolio/sports/sports.jpg" },
+                { src: "portfolio/sports/sports2.jpg" },
+                { src: "portfolio/sports/sports3.JPG" },
             ],
             family: [
                 { src: "portfolio/family/family.jpg" },
                 { src: "portfolio/family/family2.jpg" },
             ],
             events: [
-                { src: "portfolio/events.jpg" },
-                { src: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" },
+                { src: "portfolio/events/events.jpg" },
             ],
-            weddings: [
-                { src: "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" },
-                // Add your own: { src: "portfolio/weddings/pic1.jpg" },
-            ],
-            products: [
-                { src: "https://images.unsplash.com/photo-1565462908226-9f4a08579543?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" },
-                { src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" },
-            ]
         };
 
         // Function to Open Gallery
         function openGallery(category) {
-            // Hide all pages including portfolio
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.add('hidden'));
 
-            // Show gallery section
             const gallerySection = document.getElementById('gallery');
             gallerySection.classList.remove('hidden');
 
-            // Set Title
             const titleElement = document.getElementById('gallery-title');
             titleElement.innerText = category.charAt(0).toUpperCase() + category.slice(1);
 
-            // Populate Grid
             const grid = document.getElementById('gallery-grid');
-            grid.innerHTML = ''; // Clear previous
+            grid.innerHTML = ''; 
 
             const images = portfolioData[category] || [];
             
@@ -543,13 +467,15 @@
             }
 
             images.forEach(imgData => {
-                const div = document.createElement('div');
-                div.className = 'glass rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer relative';
-                div.innerHTML = `
-                    <img src="${imgData.src}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="${category} photo">
-                    <div class="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                `;
-                grid.appendChild(div);
+                if(imgData.src) { 
+                    const div = document.createElement('div');
+                    div.className = 'glass rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer relative';
+                    div.innerHTML = `
+                        <img src="${imgData.src}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="${category} photo">
+                        <div class="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    `;
+                    grid.appendChild(div);
+                }
             });
 
             window.scrollTo(0, 0);
@@ -559,12 +485,10 @@
         function handleNavClick(event, pageId) {
             if (event) event.preventDefault();
             
-            // Special handling for returning to portfolio from gallery
             if (pageId === 'portfolio') {
                 document.getElementById('gallery').classList.add('hidden');
             }
 
-            // Wrap pushState in try-catch to prevent crash in restricted environments
             try {
                 const newUrl = pageId === 'home' ? './' : pageId;
                 window.history.pushState({}, '', newUrl);
@@ -581,9 +505,6 @@
                 page.classList.add('hidden');
             });
 
-            // Special check: If pageId is a gallery category (optional, but handling basic nav here)
-            // For now, we stick to the main sections. Gallery is opened via specific clicks.
-            
             const selectedPage = document.getElementById(pageId);
             if(selectedPage) {
                 selectedPage.classList.remove('hidden');
@@ -621,10 +542,9 @@
              showSection(section);
         });
         
-        // Initialize on Load
         document.addEventListener('DOMContentLoaded', () => {
-             // Basic check for clean URL routing
-             // In preview/sandbox, this might not work as expected, defaulting to home is safe
+             renderDownloadLinks(); // Automatically loads your links on page load
+             
              let section = 'home';
              try {
                  const path = window.location.pathname.split("/").pop();
