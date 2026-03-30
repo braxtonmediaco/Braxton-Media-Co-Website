@@ -78,12 +78,19 @@
 
         /* Backgrounds & Glassmorphism */
         .parallax-bg {
-            background-image: url('images/me.JPG');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            box-shadow: inset 0 0 100px rgba(18,18,18,0.9);
+            background-color: #121212; /* Default dark background for mobile */
+        }
+        
+        /* Only apply the photo background on md screens and up (768px) */
+        @media (min-width: 768px) {
+            .parallax-bg {
+                background-image: url('images/me.JPG');
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                box-shadow: inset 0 0 100px rgba(18,18,18,0.9);
+            }
         }
 
         .glass {
@@ -296,47 +303,59 @@
         </section>
 
         <section id="about" class="page-section hidden py-20">
-             <div class="max-w-4xl mx-auto px-4 fade-in text-center">
-                 
-                 <h2 class="text-4xl md:text-6xl font-black text-white mb-6">Behind the Lens</h2>
-                 <h3 class="text-2xl text-brand-blue font-bold mb-8">Visual Storyteller Based in Kearney, Nebraska</h3>
-                 
-                 <div class="space-y-6 text-slate-300 leading-relaxed text-lg font-medium">
-                     <p>
-                         Hello! I am <span class="text-white font-bold">Braxton Warrington</span>. My mission has always been simple: capture the moments that matter most with authenticity and artistic flair.
-                     </p>
-                     <p>
-                         Whether we are hanging out of a helicopter to get the perfect establishing shot or quietly documenting the intimate moments of a wedding day, we bring the same level of passion and technical expertise to every project.
-                     </p>
-                     <p>
-                         We believe that the best content comes from making our clients feel comfortable. We aren't just photographers; we are directors, friends, and your biggest hype team.
-                     </p>
-                 </div>
+             <div class="max-w-6xl mx-auto px-4 fade-in">
+                 <div class="grid md:grid-cols-2 gap-16 items-center">
+                     <div class="relative group">
+                         <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-slate-800 border-2 border-brand-gray/30 shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-[0_0_40px_rgba(42,46,229,0.3)]">
+                             <img src="images/me.JPG" alt="Photographer Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
+                         </div>
+                         <div class="absolute -bottom-6 -right-6 bg-brand-blue/90 backdrop-blur-md p-8 rounded-2xl text-white hidden md:block shadow-xl border border-white/20">
+                             <p class="font-black text-4xl">3+</p>
+                             <p class="text-sm font-bold uppercase tracking-wider">Years Experience</p>
+                         </div>
+                     </div>
+                     
+                     <div>
+                         <h2 class="text-4xl md:text-6xl font-black text-white mb-6">Behind the Lens</h2>
+                         <h3 class="text-2xl text-brand-blue font-bold mb-8">Visual Storyteller Based in Kearney, Nebraska</h3>
+                         
+                         <div class="space-y-6 text-slate-300 leading-relaxed text-lg font-medium">
+                             <p>
+                                 Hello! I am <span class="text-white font-bold">Braxton Warrington</span>. My mission has always been simple: capture the moments that matter most with authenticity and artistic flair.
+                             </p>
+                             <p>
+                                 Whether we are hanging out of a helicopter to get the perfect establishing shot or quietly documenting the intimate moments of a wedding day, we bring the same level of passion and technical expertise to every project.
+                             </p>
+                             <p>
+                                 We believe that the best content comes from making our clients feel comfortable. We aren't just photographers; we are directors, friends, and your biggest hype team.
+                             </p>
+                         </div>
 
-                 <div class="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
-                     <a href="https://account.venmo.com/u/braxtonmediaco" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 bg-brand-blue text-white font-black text-base rounded-full hover:shadow-[0_10px_40px_-10px_rgba(42,46,229,0.8)] transition-all duration-300 ease-out transform hover:-translate-y-1 text-center flex items-center justify-center">
-                         <i data-lucide="heart" class="w-5 h-5 mr-2"></i> Support Me
-                     </a>
-                     <a href="contact" onclick="handleNavClick(event, 'contact')" class="px-8 py-3.5 glass text-white font-bold text-base rounded-full transition-all duration-300 ease-out transform hover:-translate-y-1 hover:bg-white hover:text-brand-blue text-center flex items-center justify-center">
-                         <i data-lucide="mail" class="w-5 h-5 mr-2"></i> Contact
-                     </a>
-                 </div>
+                         <div class="mt-10 flex flex-col sm:flex-row gap-5">
+                             <a href="https://account.venmo.com/u/braxtonmediaco" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 bg-brand-blue text-white font-black text-base rounded-full hover:shadow-[0_10px_40px_-10px_rgba(42,46,229,0.8)] transition-all duration-300 ease-out transform hover:-translate-y-1 text-center flex items-center justify-center">
+                                 <i data-lucide="heart" class="w-5 h-5 mr-2"></i> Support Me
+                             </a>
+                             <a href="contact" onclick="handleNavClick(event, 'contact')" class="px-8 py-3.5 glass text-white font-bold text-base rounded-full transition-all duration-300 ease-out transform hover:-translate-y-1 hover:bg-white hover:text-brand-blue text-center flex items-center justify-center">
+                                 <i data-lucide="mail" class="w-5 h-5 mr-2"></i> Contact
+                             </a>
+                         </div>
 
-                 <div class="mt-12 pt-10 border-t border-brand-gray/30">
-                     <p class="text-xs text-slate-500 mb-4 uppercase tracking-[0.2em] font-bold">Trusted By</p>
-                     <div class="flex gap-4 md:gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap items-center justify-center">
-                         <a href="https://newrestle.com/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="NE Wrestle">
-                             <img src="logos/newrestle/newrestle.svg" alt="NE Wrestle" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
-                         </a>
-                         <a href="https://www.cityofkearney.org/625/Police-Department" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="Kearney Police Department">
-                             <img src="logos/kpd/kpd.png" alt="KPD" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
-                         </a>
-                         <a href="https://holycrosskearney.org/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="Holy Cross Kearney">
-                             <img src="logos/holycross/holycross.png" alt="Holy Cross Kearney" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
-                         </a>
+                         <div class="mt-12 pt-10 border-t border-brand-gray/30">
+                             <p class="text-xs text-slate-500 mb-4 uppercase tracking-[0.2em] font-bold">Trusted By</p>
+                             <div class="flex gap-4 md:gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap items-center">
+                                 <a href="https://newrestle.com/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="NE Wrestle">
+                                     <img src="logos/newrestle/newrestle.svg" alt="NE Wrestle" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
+                                 </a>
+                                 <a href="https://www.cityofkearney.org/625/Police-Department" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="Kearney Police Department">
+                                     <img src="logos/kpd/kpd.png" alt="KPD" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
+                                 </a>
+                                 <a href="https://holycrosskearney.org/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110" aria-label="Holy Cross Kearney">
+                                     <img src="logos/holycross/holycross.png" alt="Holy Cross Kearney" class="h-8 md:h-12 w-auto object-contain" loading="lazy">
+                                 </a>
+                             </div>
+                         </div>
                      </div>
                  </div>
-                 
              </div>
         </section>
 
