@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Braxton Media Co</title>
+    <link rel="icon" type="image/svg+xml" href="logos/icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], }, colors: { brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212', accent: '#2A2EE5', light: '#f8fafc', } } } } }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #4F4F51; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2EE5; }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .nav-link.active { color: #2A2EE5; position: relative; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2A2EE5; box-shadow: 0 0 10px #2A2EE5; transition: all 0.3s ease; }
+        .glass { background: rgba(30, 30, 30, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(79, 79, 81, 0.3); }
+        .glass:hover { background: rgba(42, 46, 229, 0.1); border: 1px solid rgba(42, 46, 229, 0.5); box-shadow: 0 0 30px rgba(42, 46, 229, 0.2); }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[120px]"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-gray/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex-shrink-0 flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <a href="index.html" aria-label="Go to Home">
+                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 ml-auto items-center">
+                    <a href="portfolio.html" class="nav-link active text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Portfolio</a>
+                    <a href="about.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">About Me</a>
+                    <a href="downloads.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Download Links</a>
+                    <a href="contact.html" class="ml-4 bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-8 py-3 rounded-full font-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(42,46,229,0.4)]">Contact</a>
+                </div>
+
+                <div class="flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-brand-blue p-2 focus:outline-none" aria-label="Toggle mobile menu" id="mobile-menu-btn">
+                        <i data-lucide="menu" class="h-8 w-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full shadow-2xl transition-all">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="portfolio.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Portfolio</a>
+                <a href="about.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">About Me</a>
+                <a href="downloads.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Downloads</a>
+                <a href="contact.html" class="block w-full text-center px-4 py-3 mt-4 bg-brand-blue text-white font-black hover:bg-white hover:text-brand-blue rounded-xl transition-all duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hidden md:block fixed bottom-8 right-8 z-40">
+        <a href="index.html" class="block w-16 h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40 group" aria-label="Return to Home">
+            <img src="logos/icon.svg" alt="Braxton Media Icon" class="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">
+        </a>
+    </div>
+
+    <main class="pt-24 min-h-screen flex flex-col justify-between relative z-10">
+        
+        <section id="portfolio-overview" class="page-section py-12">
+            <div class="max-w-7xl mx-auto px-4 fade-in">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-black text-white mb-4">My Portfolio</h2>
+                    <div class="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+                </div>
+
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="film" class="mr-3 text-brand-blue"></i> Videography
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/T3ULkfSgBvY?si=jA58D9q-3fQJbHyD" title="2026 Boys 3-5th AAU State Wrestling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mt-4 ml-2">2026 Boys 3-5th AAU State Wrestling</h4>
+                        </div>
+                        <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/wElhLEluNSw?si=tRWii9HdGU5Pd4t6" title="Commercial Brand Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mt-4 ml-2">Kearney High State Teaser 2026</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="image" class="mr-3 text-brand-blue"></i> Photography Categories
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <div onclick="openGallery('portraits')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/portraits/portrait.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Portraits" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Portraits</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openGallery('family')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/family/family.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Family" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Family</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openGallery('sports')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/sports/sports.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Sports" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Sports</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openGallery('events')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/events/events.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Events" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Events</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery-viewer" class="hidden pt-12 pb-20 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 fade-in">
+                <div class="flex items-center mb-10">
+                    <button onclick="closeGallery()" class="glass px-6 py-3 rounded-full text-white font-bold flex items-center hover:bg-brand-blue hover:border-brand-blue transition-all">
+                        <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Portfolio
+                    </button>
+                    <h2 id="gallery-title" class="text-3xl md:text-5xl font-black text-white ml-6 md:ml-10 tracking-tight">Gallery Title</h2>
+                </div>
+                
+                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+            </div>
+        </section>
+
+        <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <div class="flex justify-center items-center mb-8">
+                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
+                </div>
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" aria-label="YouTube" class="text-slate-400 hover:text-[#FF0000] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+                <p class="text-slate-600 text-sm font-medium">© 2026 Braxton Media Co. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 transition-opacity duration-300 opacity-0" onclick="if(event.target === this) closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none" aria-label="Close Lightbox">
+            <i data-lucide="x" class="w-8 h-8 md:w-12 md:h-12"></i>
+        </button>
+        <img id="lightbox-img" src="" class="max-h-full max-w-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95" alt="Fullscreen view">
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const isHidden = menu.classList.toggle('hidden');
+            if (btn) btn.setAttribute('aria-expanded', !isHidden);
+        }
+
+        // LIGHTBOX LOGIC
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                img.classList.remove('scale-95');
+                img.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            lightbox.classList.add('opacity-0');
+            img.classList.remove('scale-100');
+            img.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                img.src = '';
+            }, 300); 
+        }
+
+        // GALLERY DATA & RENDER
+        const portfolioData = {
+            portraits: [ { src: "portfolio/portraits/portrait.jpg" }, { src: "portfolio/portraits/portrait2.jpg" }, { src: "portfolio/portraits/portrait3.jpg" }, { src: "portfolio/portraits/portrait4.jpg" }, { src: "portfolio/portraits/portrait5.jpg" }, ],
+            sports: [ { src: "portfolio/sports/sports.jpg" }, { src: "portfolio/sports/sports2.jpg" }, { src: "portfolio/sports/sports3.JPG" }, { src: "portfolio/sports/sports4.jpg" }, ],
+            family: [ { src: "portfolio/family/family.jpg" }, { src: "portfolio/family/family2.jpg" }, ],
+            events: [ { src: "portfolio/events/events.jpg" }, ],
+        };
+
+        function openGallery(category) {
+            document.getElementById('portfolio-overview').classList.add('hidden');
+            const gallerySection = document.getElementById('gallery-viewer');
+            gallerySection.classList.remove('hidden');
+
+            document.getElementById('gallery-title').innerText = category.charAt(0).toUpperCase() + category.slice(1);
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = ''; 
+
+            const images = portfolioData[category] || [];
+            
+            if (images.length === 0) {
+                grid.innerHTML = '<p class="text-slate-500 col-span-3 text-center">No images found in this category yet.</p>';
+                return;
+            }
+
+            images.forEach(imgData => {
+                if (imgData.src) { 
+                    const div = document.createElement('div');
+                    div.className = 'glass rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer relative';
+                    div.onclick = () => openLightbox(imgData.src);
+                    
+                    div.innerHTML = `
+                        <img src="${imgData.src}" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="${category} photo" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
+                        </div>
+                    `;
+                    grid.appendChild(div);
+                }
+            });
+            lucide.createIcons();
+            window.scrollTo(0, 0);
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery-viewer').classList.add('hidden');
+            document.getElementById('portfolio-overview').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
