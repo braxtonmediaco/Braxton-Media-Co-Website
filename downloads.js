@@ -1,6 +1,6 @@
 const downloadLinksData = [   
     {
-        title: "2026-04-07 Girls JV Track",
+        title: "2026-04-07 JV Track",
         url: "https://photos.app.goo.gl/wzjX5ywWxBCXxbp9A",
     }, 
     {
