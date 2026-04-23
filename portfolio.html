@@ -132,6 +132,13 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Events</span>
                             </div>
+                        </div> <!-- This closing div was previously missing! -->
+
+                        <div onclick="openGallery('realestate')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/realestate/realestate.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Real Estate" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Real Estate</span>
+                            </div>
                         </div>
 
                     </div>
@@ -223,6 +230,7 @@
             sports: [ { src: "portfolio/sports/sports.jpg" }, { src: "portfolio/sports/sports2.jpg" }, { src: "portfolio/sports/sports3.JPG" }, { src: "portfolio/sports/sports4.jpg" }, ],
             family: [ { src: "portfolio/family/family.jpg" }, { src: "portfolio/family/family2.jpg" }, ],
             events: [ { src: "portfolio/events/events.jpg" }, ],
+            realestate: [ { src: "portfolio/realestate/realestate.jpg" }, { src: "portfolio/realestate/realestate2.jpg" }, { src: "portfolio/realestate/realestate3.jpg" }, ],
         };
 
         function openGallery(category) {
