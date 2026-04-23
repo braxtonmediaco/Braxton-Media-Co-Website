@@ -132,7 +132,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Events</span>
                             </div>
-                        </div> <!-- This closing div was previously missing! -->
+                        </div>
 
                         <div onclick="openGallery('realestate')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
                             <img src="portfolio/realestate/realestate.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Real Estate" loading="lazy">
@@ -229,8 +229,13 @@
             portraits: [ { src: "portfolio/portraits/portrait.jpg" }, { src: "portfolio/portraits/portrait2.jpg" }, { src: "portfolio/portraits/portrait3.jpg" }, { src: "portfolio/portraits/portrait4.jpg" }, { src: "portfolio/portraits/portrait5.jpg" }, ],
             sports: [ { src: "portfolio/sports/sports.jpg" }, { src: "portfolio/sports/sports2.jpg" }, { src: "portfolio/sports/sports3.JPG" }, { src: "portfolio/sports/sports4.jpg" }, ],
             family: [ { src: "portfolio/family/family.jpg" }, { src: "portfolio/family/family2.jpg" }, ],
-            events: [ { src: "portfolio/events/events.jpg" }, ],
-            realestate: [ { src: "portfolio/realestate/realestate.jpg" }, { src: "portfolio/realestate/realestate2.jpg" }, { src: "portfolio/realestate/realestate3.jpg" }, ],
+            events: [ { src: "portfolio/events/events.jpg" }, { src: "portfolio/events/events1.jpg" }, { src: "portfolio/events/events2.jpg" } ],
+            realestate: [ 
+                { type: "youtube", src: "https://www.youtube.com/embed/4iUG8C-qgmM?si=IH5AE4YBhGCKZz1l" },
+                { src: "portfolio/realestate/realestate.jpg" }, 
+                { src: "portfolio/realestate/realestate2.jpg" }, 
+                { src: "portfolio/realestate/realestate3.jpg" }, 
+            ],
         };
 
         function openGallery(category) {
@@ -249,14 +254,23 @@
                 return;
             }
 
-            images.forEach(imgData => {
-                if (imgData.src) { 
+            images.forEach(item => {
+                if (item.type === 'youtube') {
+                    // Video container - spans wider to fit 16:9 aspect ratio
+                    const div = document.createElement('div');
+                    div.className = 'glass rounded-2xl overflow-hidden aspect-video relative col-span-1 md:col-span-2 lg:col-span-2 shadow-lg';
+                    div.innerHTML = `
+                        <iframe class="w-full h-full" src="${item.src}" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    `;
+                    grid.appendChild(div);
+                } else if (item.src) { 
+                    // Standard image container
                     const div = document.createElement('div');
                     div.className = 'glass rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer relative';
-                    div.onclick = () => openLightbox(imgData.src);
+                    div.onclick = () => openLightbox(item.src);
                     
                     div.innerHTML = `
-                        <img src="${imgData.src}" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="${category} photo" loading="lazy">
+                        <img src="${item.src}" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="${category} photo" loading="lazy">
                         <div class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
                         </div>
