@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Pricing | Braxton Media Co</title>
+    <link rel="icon" type="image/svg+xml" href="logos/icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], }, colors: { brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212', accent: '#2A2EE5', light: '#f8fafc', } } } } }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #4F4F51; border-radius: 4px; }
+        .nav-link.active { color: #2A2EE5; position: relative; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2A2EE5; box-shadow: 0 0 10px #2A2EE5; }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-brand-dark border-b border-brand-gray/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex-shrink-0 flex items-center cursor-pointer transition-transform duration-300">
+                    <a href="index.html" aria-label="Go to Home">
+                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 ml-auto items-center">
+                    <a href="portfolio.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Portfolio</a>
+                    <a href="about.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">About Me</a>
+                    <a href="pricing.html" class="nav-link active text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Pricing</a>
+                    <a href="downloads.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Download Links</a>
+                    <a href="contact.html" class="ml-4 bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-8 py-3 rounded font-bold transition-all duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <a href="pricing.html" class="inline-flex items-center text-slate-400 hover:text-brand-blue font-bold mb-8 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to All Categories
+            </a>
+
+            <div class="flex flex-col md:flex-row gap-12 mb-20 items-center">
+                <div class="w-full md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Commercial & Real Estate</h1>
+                    <p class="text-lg text-slate-400 leading-relaxed mb-6">Elevate your brand or property listing with high-impact photos and cinematic video. I offer comprehensive professional photography and videography for businesses, realtors, and commercial projects looking for a clean, high-end look.</p>
+                    <p class="text-lg text-slate-400 leading-relaxed">Due to the diverse nature of commercial work, pricing varies based on photo count and video length. Contact me for a custom quote tailored exactly to your needs.</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-[4/3] rounded overflow-hidden border border-brand-gray/30 bg-brand-gray/10">
+                        <!-- REPLACE WITH YOUR COMMERCIAL HERO IMAGE -->
+                        <img src="portfolio/realestate/realestate.jpg" alt="Commercial Example" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packages / Info Grid -->
+            <div class="grid md:grid-cols-2 gap-8 mb-20">
+                
+                <!-- Package 1 -->
+                <div class="bg-[#18181a] border border-brand-gray/30 rounded p-10 flex flex-col hover:border-brand-gray/60 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-2">Real Estate Photo & Video</h3>
+                    <div class="text-brand-blue font-bold text-3xl mb-6">Starting at $150</div>
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Interior & Exterior Photography</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Cinematic Video Walkthroughs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Drone Photo & Video Available</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Fast 24-48 Hour Turnaround</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="w-full text-center border border-brand-gray/50 text-white hover:border-brand-blue hover:text-brand-blue font-bold py-3 rounded transition-colors">Inquire About Real Estate</a>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="bg-[#18181a] border border-brand-gray/30 rounded p-10 flex flex-col hover:border-brand-gray/60 transition-colors">
+                    <h3 class="text-2xl font-bold text-white mb-2">Brand Promotional Content</h3>
+                    <div class="text-brand-blue font-bold text-3xl mb-6">Custom Quote</div>
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">High-Resolution Commercial Photography</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">High Quality 4K Promotional Video</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Professional Audio & Music Licensing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-blue mr-3 shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300">Optimized formats for Website and Socials</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="w-full text-center bg-brand-blue text-white hover:bg-white hover:text-brand-blue font-bold py-3 rounded transition-colors">Request a Quote</a>
+                </div>
+
+            </div>
+
+            <!-- Example Work Section -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-8 border-b border-brand-gray/30 pb-4">Recent Commercial Work</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- ADD YOUR COMMERCIAL IMAGES HERE -->
+                    <div class="aspect-video bg-brand-gray/10 rounded overflow-hidden">
+                        <img src="portfolio/realestate/realestate.jpg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Commercial Photo">
+                    </div>
+                    <div class="aspect-video bg-brand-gray/10 rounded overflow-hidden">
+                        <img src="portfolio/realestate/realestate2.jpg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Commercial Photo">
+                    </div>
+                    <div class="aspect-video bg-brand-gray/10 rounded overflow-hidden">
+                        <img src="portfolio/realestate/realestate3.jpg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Commercial Photo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
