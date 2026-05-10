@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holy Cross VBS 2026 | Braxton Media Co</title>
-    <link rel="icon" type="image/svg+xml" href="">
+    <link rel="icon" type="image/svg+xml" href="../../logos/icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -28,6 +28,9 @@
         @media (min-width: 768px) { .masonry { column-count: 2; } }
         @media (min-width: 1024px) { .masonry { column-count: 3; } }
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        
+        /* Carousel utility styles */
+        .carousel-track { touch-action: pan-y pinch-zoom; }
     </style>
 </head>
 <body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
@@ -43,16 +46,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex-shrink-0 flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <a href="index.html" aria-label="Go to Home">
-                        <img src="../logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
+                    <a href="../../index.html" aria-label="Go to Home">
+                        <img src="../../logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
                     </a>
                 </div>
                 
                 <div class="hidden md:flex space-x-8 ml-auto items-center">
-                    <a href="portfolio.html" class="nav-link active text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Portfolio</a>
-                    <a href="about.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">About Me</a>
-                    <a href="downloads.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Download Links</a>
-                    <a href="contact.html" class="ml-4 bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-8 py-3 rounded-full font-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(42,46,229,0.4)]">Contact</a>
+                    <a href="../../portfolio.html" class="nav-link active text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Portfolio</a>
+                    <a href="../../about.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">About Me</a>
+                    <a href="../../downloads.html" class="nav-link text-white hover:text-brand-blue px-1 py-2 text-sm font-bold transition-all">Download Links</a>
+                    <a href="../../contact.html" class="ml-4 bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-8 py-3 rounded-full font-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(42,46,229,0.4)]">Contact</a>
                 </div>
 
                 <div class="flex md:hidden">
@@ -65,18 +68,18 @@
         
         <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full shadow-2xl transition-all">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="portfolio.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Portfolio</a>
-                <a href="about.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">About Me</a>
-                <a href="downloads.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Downloads</a>
-                <a href="contact.html" class="block w-full text-center px-4 py-3 mt-4 bg-brand-blue text-white font-black hover:bg-white hover:text-brand-blue rounded-xl transition-all duration-300">Contact</a>
+                <a href="../../portfolio.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Portfolio</a>
+                <a href="../../about.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">About Me</a>
+                <a href="../../downloads.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Downloads</a>
+                <a href="../../contact.html" class="block w-full text-center px-4 py-3 mt-4 bg-brand-blue text-white font-black hover:bg-white hover:text-brand-blue rounded-xl transition-all duration-300">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Floating Home Button -->
     <div class="hidden md:block fixed bottom-8 right-8 z-40">
-        <a href="index.html" class="block w-16 h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40 group" aria-label="Return to Home">
-            <img src="../logos/icon.svg" alt="Braxton Media Icon" class="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg=='">
+        <a href="../../index.html" class="block w-16 h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40 group" aria-label="Return to Home">
+            <img src="../../logos/icon.svg" alt="Braxton Media Icon" class="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg=='">
         </a>
     </div>
 
@@ -98,9 +101,8 @@
                 </a>
 
                 <div class="max-w-4xl">
-                    <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Sports Media Package</span>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">Summer Sports Series Highlight Campaign</h1>
-                    <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">A multi-week coverage of regional summer sports, delivering high-impact video highlights, player portraits, and social media assets to boost team engagement.</p>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">Holy Cross VBS 2026</h1>
+                    <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">A week long event to help grow Holy Cross Lutherans VBS attendance.</p>
                 </div>
             </div>
         </header>
@@ -116,10 +118,10 @@
                             <i data-lucide="info" class="w-6 h-6 mr-3 text-brand-blue"></i> Project Overview
                         </h2>
                         <p class="text-slate-300 text-lg leading-relaxed">
-                            This campaign was designed to capture the raw energy and dedication of local athletes during the summer tournament season. Over the course of three weeks, Braxton Media Co provided end-to-end media coverage.
+                            This campaign was to help grow Holy Cross' following online and in person. This capaign also improved the event for the people attending including a recap video and many pictures displayed before and after the event.
                         </p>
                         <p class="text-slate-300 text-lg leading-relaxed">
-                            The goal was to create a cohesive media package that the teams could use to boost their social media presence, recruit new players, and give families lasting memories of the season. The deliverables included two full-length highlight videos, over 150 edited high-resolution photos, and custom graphics.
+                            Insert Text Here
                         </p>
                     </div>
 
@@ -130,23 +132,23 @@
                         <div class="space-y-4">
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Client</span>
-                                <span class="text-white font-medium">Regional Athletics Association</span>
+                                <span class="text-white font-medium">Holy Cross Lutheran Church</span>
                             </div>
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Role</span>
-                                <span class="text-white font-medium">Lead Videographer & Photographer</span>
+                                <span class="text-white font-medium">Videographer & Photographer</span>
                             </div>
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Deliverables</span>
                                 <ul class="text-white font-medium list-disc list-inside mt-1">
                                     <li>2 Highlight Videos</li>
+                                    <li>Social Media Content</li>
                                     <li>150+ Edited Photos</li>
-                                    <li>Social Media Reels</li>
                                 </ul>
                             </div>
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Date</span>
-                                <span class="text-white font-medium">Summer 2026</span>
+                                <span class="text-white font-medium">June 7-11th 2026</span>
                             </div>
                         </div>
                     </div>
@@ -155,12 +157,12 @@
             </div>
         </section>
 
-        <!-- VIDEO DELIVERABLES SECTION -->
+        <!-- VIDEOS SECTION -->
         <section class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="mb-12">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
-                        <i data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Video Deliverables
+                        <i data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Videos
                     </h2>
                     <p class="text-slate-400 mt-2">The primary video content produced for this campaign.</p>
                 </div>
@@ -170,20 +172,88 @@
                     <!-- Video 1 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/bDHH41Fj-j4?si=9ql-CGtsqCYto-5H" title="Campaign Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/bzQ_ISDo3ts?si=feHCYV4GWok1nc5N" title="Campaign Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Main Highlight Reel</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">A 3-minute compilation of the best moments from the tournament.</p>
+                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Ad Video</h4>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">A short video including footage from last year to promote the event.</p>
                     </div>
 
                     <!-- Video 2 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/T3ULkfSgBvY?si=jA58D9q-3fQJbHyD" title="Campaign Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="Insert Link Here" title="Campaign Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Social Media Cut (Vertical/Reel Format)</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">A fast-paced, high-energy cut specifically formatted for Instagram Reels and TikTok.</p>
+                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Week Recap Video</h4>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">A video recapping the week long event showing off the fun and learning that happened over the week.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL MEDIA POSTS SECTION -->
+        <section class="py-16 md:py-24 relative">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
+                        <i data-lucide="smartphone" class="w-8 h-8 mr-4 text-brand-blue"></i> Social Media Content
+                    </h2>
+                    <p class="text-slate-400 mt-2">Daily Content Posted to Holy Cross Kearney's Socials</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- 9:16 Stories & Reels Carousel -->
+                    <div class="mx-auto w-full max-w-sm">
+                        <h4 class="text-xl font-bold text-white mb-4 text-center">Daily Story Posts</h4>
+                        <div class="carousel-container relative w-full aspect-[9/16] rounded-2xl overflow-hidden group shadow-[0_0_30px_rgba(42,46,229,0.1)] border border-brand-gray/30 bg-brand-dark">
+                            
+                            <!-- Carousel Track -->
+                            <div class="carousel-track flex h-full transition-transform duration-300 ease-out">
+                                <!-- Update these src links to your actual portrait images -->
+                                <img src="portfolio/social/story1.jpg" alt="Story 1" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMTwvdGV4dD48L3N2Zz4='">
+                                <img src="portfolio/social/story2.jpg" alt="Story 2" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMjwvdGV4dD48L3N2Zz4='">
+                                <img src="portfolio/social/story3.jpg" alt="Story 3" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMzwvdGV4dD48L3N2Zz4='">
+                            </div>
+                            
+                            <!-- Always visible on mobile, visible on hover for desktop -->
+                            <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-blue hover:scale-110 z-10" aria-label="Previous image">
+                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            </button>
+                            <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-blue hover:scale-110 z-10" aria-label="Next image">
+                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            </button>
+
+                            <!-- Indicators -->
+                            <div class="carousel-indicators absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10"></div>
+                        </div>
+                    </div>
+
+                    <!-- 4:5 Instagram Feed Carousel -->
+                    <div class="mx-auto w-full max-w-md lg:max-w-lg">
+                        <h4 class="text-xl font-bold text-white mb-4 text-center">Daily Posts to Instagram and Facebook</h4>
+                        <div class="carousel-container relative w-full aspect-[4/5] rounded-2xl overflow-hidden group shadow-[0_0_30px_rgba(42,46,229,0.1)] border border-brand-gray/30 bg-brand-dark">
+                            
+                            <!-- Carousel Track -->
+                            <div class="carousel-track flex h-full transition-transform duration-300 ease-out">
+                                <!-- Update these src links to your actual post images -->
+                                <img src="portfolio/social/post1.jpg" alt="Post 1" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAxPC90ZXh0Pjwvc3ZnPg=='">
+                                <img src="portfolio/social/post2.jpg" alt="Post 2" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAyPC90ZXh0Pjwvc3ZnPg=='">
+                                <img src="portfolio/social/post3.jpg" alt="Post 3" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAzPC90ZXh0Pjwvc3ZnPg=='">
+                            </div>
+                            
+                            <!-- Always visible on mobile, visible on hover for desktop -->
+                            <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-blue hover:scale-110 z-10" aria-label="Previous image">
+                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            </button>
+                            <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-blue hover:scale-110 z-10" aria-label="Next image">
+                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            </button>
+
+                            <!-- Indicators -->
+                            <div class="carousel-indicators absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -193,7 +263,7 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="mb-12">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
-                        <i data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photography Showcase
+                        <i data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photos
                     </h2>
                     <p class="text-slate-400 mt-2">Click any image to view it in full screen.</p>
                 </div>
@@ -262,7 +332,7 @@
         <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <div class="flex justify-center items-center mb-8">
-                    <img src="../logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
+                    <img src="../../logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
                 </div>
                 <div class="flex justify-center space-x-8 mb-8">
                     <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
@@ -335,6 +405,97 @@
                 document.body.style.overflow = 'auto';
             }, 300); 
         }
+
+        // Carousel Initialization & Logic
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const track = container.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('img');
+            const prevBtn = container.querySelector('.carousel-prev');
+            const nextBtn = container.querySelector('.carousel-next');
+            const indicatorsContainer = container.querySelector('.carousel-indicators');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            if (totalSlides === 0) return;
+
+            // Generate Indicators (Dots)
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-300 focus:outline-none ${index === 0 ? 'bg-white w-5' : 'bg-white/50 hover:bg-white/80'}`;
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => goToSlide(index));
+                indicatorsContainer.appendChild(dot);
+            });
+
+            const dots = indicatorsContainer.querySelectorAll('button');
+
+            function updateCarousel() {
+                // Update transform
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update dots active state
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-white/50', 'hover:bg-white/80');
+                        dot.classList.add('bg-white', 'w-5');
+                    } else {
+                        dot.classList.remove('bg-white', 'w-5');
+                        dot.classList.add('bg-white/50', 'hover:bg-white/80');
+                    }
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            // Arrow button click events
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Touch Drag/Swipe Events functionality
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                // remove transition temporarily for 1-to-1 dragging feel (optional, but keeping simple here)
+            }, {passive: true});
+
+            track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+            }, {passive: true});
+
+            track.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                let endX = e.changedTouches[0].clientX;
+                let diffX = startX - endX;
+
+                // Threshold to detect a deliberate swipe (50px)
+                if (diffX > 50) {
+                    nextSlide(); // Swiped left
+                } else if (diffX < -50) {
+                    prevSlide(); // Swiped right
+                }
+            });
+        });
     </script>
 </body>
 </html>
