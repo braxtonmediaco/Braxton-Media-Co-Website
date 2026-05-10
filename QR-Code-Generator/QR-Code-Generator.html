@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand QR Code Generator</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        :root {
+            /* Default variables, dynamically updated by JS */
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            
+            /* Dark Mode Palette */
+            --secondary: #334155;       /* Slate 700 */
+            --secondary-hover: #475569; /* Slate 600 */
+            --container-bg: #1e293b;    /* Slate 800 */
+            --background: #0f172a;      /* Slate 900 */
+            --border: #475569;          /* Slate 600 */
+            --text: #f8fafc;            /* Slate 50 */
+            --text-muted: #94a3b8;      /* Slate 400 */
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            margin: 0;
+            color-scheme: dark; /* Ensures native inputs like file pickers respect dark mode */
+        }
+
+        .container {
+            background: var(--container-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+            width: 100%;
+            max-width: 500px;
+            border-top: 6px solid var(--primary);
+            transition: border-top-color 0.3s ease;
+        }
+
+        /* Tabs Styling */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--background);
+            padding: 0.35rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 0.2);
+        }
+
+        /* Typography */
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+            font-size: 1.75rem;
+            text-align: center;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            margin-top: 0;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"], input[type="file"], select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: var(--background);
+            color: var(--text);
+            transition: outline 0.2s, border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: -1px;
+            border-color: transparent;
+        }
+
+        /* Advanced Customization */
+        details {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem;
+            user-select: none;
+        }
+
+        .customization-panel {
+            padding: 1rem 0.5rem 0.5rem;
+            display: grid;
+            gap: 1rem;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .row select {
+            width: auto;
+            min-width: 120px;
+            padding: 0.5rem;
+        }
+
+        input[type="color"] {
+            padding: 0;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        /* Range Slider specific styles to look better in dark mode */
+        input[type="range"] {
+            accent-color: var(--primary);
+        }
+
+        .warning-text {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        button.action-btn {
+            flex: 1;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.875rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        button.action-btn:hover {
+            background-color: var(--secondary-hover);
+        }
+
+        /* Canvas */
+        #canvas-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYNgfQEhjw8jAwHDiAEMw6gEDGBoYGD4wMDAwDGMYRsOAYYQhGAsIYQAAbx4QG91jZfAAAAAASUVORK5CYII=');
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-braxton" onclick="switchTab('braxton')">Braxton Media Co</button>
+            <button class="tab-btn" id="tab-holycross" onclick="switchTab('holycross')">Holy Cross Kearney</button>
+        </div>
+
+        <h1 id="appTitle"><b>Braxton Media Co</b></h1>
+        <p class="subtitle" id="appSubtitle">Official QR Code Generator</p>
+        
+        <div class="form-group">
+            <label for="urlInput">Destination URL</label>
+            <input type="text" id="urlInput" placeholder="https://braxtonmediaco.com" oninput="generateQRCode()">
+        </div>
+
+        <div class="form-group">
+            <label for="imageInput">Upload Custom Center Logo (PNG)</label>
+            <input type="file" id="imageInput" accept="image/png">
+        </div>
+
+        <details>
+            <summary>Advanced Customization ▼</summary>
+            <div class="customization-panel">
+                <div class="row">
+                    <label for="logoSize">Logo Size</label>
+                    <input type="range" id="logoSize" min="0.1" max="0.7" step="0.05" value="0.4" oninput="generateQRCode()">
+                </div>
+                <div class="warning-text">Note: Making the logo too large may make the QR code unscannable. Always test before using!</div>
+                
+                <div class="row">
+                    <label for="qrColor">QR Code Color</label>
+                    <input type="color" id="qrColor" value="#000000" oninput="generateQRCode()">
+                </div>
+
+                <div class="row">
+                    <label for="hasBackground">Include Background</label>
+                    <input type="checkbox" id="hasBackground" checked>
+                </div>
+
+                <div class="row" id="bgColorRow">
+                    <label for="bgColor">Background Color</label>
+                    <input type="color" id="bgColor" value="#ffffff" oninput="generateQRCode()">
+                </div>
+
+                <div class="row" style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 0.5rem;">
+                    <label for="exportSize">Download Resolution</label>
+                    <select id="exportSize">
+                        <option value="300">Small (300x300)</option>
+                        <option value="600" selected>Medium (600x600)</option>
+                        <option value="1200">Large (1200x1200)</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label for="downloadFormat">Export Format</label>
+                    <select id="downloadFormat" onchange="updateDownloadButtonText()">
+                        <option value="png" selected>PNG (Standard)</option>
+                        <option value="svg">SVG (Vector/Scalable)</option>
+                    </select>
+                </div>
+            </div>
+        </details>
+
+        <div class="button-group">
+            <button id="downloadBtn" onclick="downloadQRCode()" class="action-btn">Download QR Code (PNG)</button>
+        </div>
+
+        <div id="canvas-container"></div>
+    </div>
+
+    <script>
+        // --- Configuration & State Management ---
+        const brandConfigs = {
+            braxton: {
+                title: "Braxton Media Co",
+                subtitle: "Official QR Code Generator",
+                primaryColor: "#2563eb", // Blue theme
+                defaultUrl: "https://braxtonmediaco.com",
+                defaultLogoPath: "braxtonmediaco.png" 
+            },
+            holycross: {
+                title: "Holy Cross",
+                subtitle: "Official QR Code Generator",
+                primaryColor: "#5fa344", // Green theme
+                defaultUrl: "https://holycrosskearney.org",
+                defaultLogoPath: "holycrosskearney.png"
+            }
+        };
+
+        let currentBrand = 'braxton';
+        let currentDefaultLogoBase64 = "";
+        let uploadedLogoUrl = "";
+
+        // --- Core Functions ---
+
+        // Helper to convert an external URL to a Base64 string for SVG embedding
+        async function getBase64FromUrl(url) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.readAsDataURL(blob);
+                });
+            } catch (e) {
+                console.warn(`Could not load logo (${url}) as base64. Ensure the file exists in the directory.`, e);
+                return url; // fallback to path if fetch fails
+            }
+        }
+
+        // Switch Tabs Logic
+        async function switchTab(brandKey) {
+            currentBrand = brandKey;
+            const config = brandConfigs[brandKey];
+
+            // 1. Update UI Active States
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${brandKey}`).classList.add('active');
+
+            // 2. Update CSS Variables
+            document.documentElement.style.setProperty('--primary', config.primaryColor);
+
+            // 3. Update Text & Inputs
+            document.getElementById('appTitle').innerHTML = `<b>${config.title}</b>`;
+            document.getElementById('appSubtitle').innerText = config.subtitle;
+            document.getElementById('urlInput').value = config.defaultUrl;
+            document.getElementById('urlInput').placeholder = config.defaultUrl;
+
+            // 4. Reset User Uploads
+            document.getElementById('imageInput').value = ''; 
+            
+            // 5. Load Brand Specific Logo
+            currentDefaultLogoBase64 = await getBase64FromUrl(config.defaultLogoPath);
+            uploadedLogoUrl = currentDefaultLogoBase64; 
+
+            // 6. Regenerate
+            generateQRCode();
+        }
+
+        // Handle Background toggle
+        document.getElementById('hasBackground').addEventListener('change', function(e) {
+            document.getElementById('bgColorRow').style.opacity = e.target.checked ? '1' : '0.5';
+            document.getElementById('bgColor').disabled = !e.target.checked;
+            generateQRCode();
+        });
+
+        // Update button text when format changes
+        function updateDownloadButtonText() {
+            const format = document.getElementById('downloadFormat').value.toUpperCase();
+            document.getElementById('downloadBtn').innerText = `Download QR Code (${format})`;
+        }
+
+        // Handle custom image upload
+        document.getElementById('imageInput').addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    uploadedLogoUrl = event.target.result; // Saves as base64 string
+                    generateQRCode();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                // Revert to brand default if cleared
+                uploadedLogoUrl = currentDefaultLogoBase64;
+                generateQRCode();
+            }
+        });
+
+        // Initialize UI QR Code Styling instance
+        const uiQrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg", 
+            qrOptions: { errorCorrectionLevel: 'H' },
+            dotsOptions: { type: "square" },
+            imageOptions: { crossOrigin: "anonymous", margin: 5, hideBackgroundDots: true }
+        });
+
+        // Generate the on-screen preview
+        function generateQRCode() {
+            const url = document.getElementById('urlInput').value;
+            const logoRatio = parseFloat(document.getElementById('logoSize').value);
+            const qrColor = document.getElementById('qrColor').value;
+            const hasBackground = document.getElementById('hasBackground').checked;
+            const bgColor = hasBackground ? document.getElementById('bgColor').value : "rgba(255, 255, 255, 0)";
+
+            if (!url) return;
+
+            uiQrCode.update({
+                data: url,
+                image: uploadedLogoUrl,
+                dotsOptions: { color: qrColor },
+                backgroundOptions: { color: bgColor },
+                imageOptions: { imageSize: logoRatio }
+            });
+
+            const container = document.getElementById("canvas-container");
+            container.innerHTML = "";
+            uiQrCode.append(container);
+        }
+
+        // Dedicated download logic
+        async function downloadQRCode() {
+            const format = document.getElementById('downloadFormat').value;
+            const resolution = parseInt(document.getElementById('exportSize').value);
+            const url = document.getElementById('urlInput').value;
+            const logoRatio = parseFloat(document.getElementById('logoSize').value);
+            const qrColor = document.getElementById('qrColor').value;
+            const hasBackground = document.getElementById('hasBackground').checked;
+            const bgColor = hasBackground ? document.getElementById('bgColor').value : "rgba(255, 255, 255, 0)";
+            const filename = `${currentBrand}-qr-code`;
+
+            const downloadQrCode = new QRCodeStyling({
+                width: resolution,
+                height: resolution,
+                type: format === 'svg' ? 'svg' : 'canvas', 
+                data: url,
+                image: uploadedLogoUrl,
+                qrOptions: { errorCorrectionLevel: 'H' },
+                dotsOptions: { type: "square", color: qrColor },
+                backgroundOptions: { color: bgColor },
+                imageOptions: { crossOrigin: "anonymous", margin: 5, hideBackgroundDots: true, imageSize: logoRatio }
+            });
+
+            if (format === 'svg') {
+                try {
+                    const rawData = await downloadQrCode.getRawData('svg');
+                    let svgText = await rawData.text();
+
+                    if (!svgText.includes('xmlns:xlink')) {
+                        svgText = svgText.replace('<svg ', '<svg xmlns:xlink="http://www.w3.org/1999/xlink" ');
+                    }
+                    svgText = svgText.replace(/<image([^>]*?)href="([^"]*)"/g, '<image$1href="$2" xlink:href="$2"');
+
+                    const blob = new Blob([svgText], { type: 'image/svg+xml' });
+                    const blobUrl = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = `${filename}.svg`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    URL.revokeObjectURL(blobUrl);
+                } catch (e) {
+                    console.error("Custom SVG generation failed, falling back to default.", e);
+                    downloadQrCode.download({ name: filename, extension: "svg" });
+                }
+            } else {
+                downloadQrCode.download({
+                    name: filename,
+                    extension: format
+                });
+            }
+        }
+
+        // Initialize App
+        window.onload = function() {
+            // Pre-load the first tab (Braxton Media Co)
+            switchTab('braxton');
+        };
+    </script>
+</body>
+</html>
