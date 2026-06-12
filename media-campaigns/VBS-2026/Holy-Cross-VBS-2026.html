@@ -86,7 +86,8 @@
     <main class="min-h-screen flex flex-col justify-between relative z-10">
         
         <!-- CAMPAIGN HERO SECTION -->
-        <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Reduced padding from pt-32 pb-20 to pt-28 pb-10 -->
+        <header class="relative pt-28 pb-10 lg:pt-36 lg:pb-16 overflow-hidden">
             <!-- Hero Background Image (Swap this out!) -->
             <div class="absolute inset-0 z-0">
                 <img src="portfolio/campaigns/campaign1-cover.jpg" alt="Campaign Cover" class="w-full h-full object-cover opacity-30" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PC9zdmc+'">
@@ -96,40 +97,43 @@
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 fade-in">
                 <!-- Back Button -->
-                <a href="portfolio.html" class="inline-flex items-center text-slate-400 hover:text-white hover:bg-brand-gray/20 px-4 py-2 rounded-full transition-all mb-8 md:mb-12 border border-transparent hover:border-brand-gray/30">
+                <!-- Reduced margin bottom -->
+                <a href="portfolio.html" class="inline-flex items-center text-slate-400 hover:text-white hover:bg-brand-gray/20 px-4 py-2 rounded-full transition-all mb-6 md:mb-8 border border-transparent hover:border-brand-gray/30">
                     <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Portfolio
                 </a>
 
                 <div class="max-w-4xl">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">Holy Cross VBS 2026</h1>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">Holy Cross VBS 2026</h1>
                     <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">A week long event to help grow Holy Cross Lutherans VBS attendance and online presence</p>
                 </div>
             </div>
         </header>
 
         <!-- PROJECT OVERVIEW SECTION -->
-        <section class="py-16 md:py-24">
+        <!-- Reduced section padding -->
+        <section class="py-10 md:py-16">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="grid md:grid-cols-3 gap-12">
+                <!-- Reduced grid gap -->
+                <div class="grid md:grid-cols-3 gap-8">
                     
                     <!-- Text Content -->
-                    <div class="md:col-span-2 space-y-6">
-                        <h2 class="text-3xl font-bold text-white flex items-center">
+                    <div class="md:col-span-2 space-y-4">
+                        <h2 class="text-3xl font-bold text-white flex items-center mb-2">
                             <i data-lucide="info" class="w-6 h-6 mr-3 text-brand-blue"></i> Project Overview
                         </h2>
                         <p class="text-slate-300 text-lg leading-relaxed">
                             This campaign was to help grow Holy Cross' following online and in person. This capaign also improved the event for the people attending including a recap video and many pictures displayed before and after the event.
                         </p>
                         <p class="text-slate-300 text-lg leading-relaxed">
-                            Insert Text Here
+                            All pictures and videos seen were done in colaboration with Ryan Dahlke.
                         </p>
                     </div>
 
                     <!-- Project Details Card -->
-                    <div class="glass p-8 rounded-2xl h-fit border border-brand-gray/20">
-                        <h3 class="text-xl font-bold text-white mb-6 border-b border-brand-gray/30 pb-4">Campaign Details</h3>
+                    <div class="glass p-6 md:p-8 rounded-2xl h-fit border border-brand-gray/20">
+                        <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-gray/30 pb-3">Campaign Details</h3>
                         
-                        <div class="space-y-4">
+                        <div class="space-y-3">
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Client</span>
                                 <span class="text-white font-medium">Holy Cross Lutheran Church</span>
@@ -158,23 +162,25 @@
         </section>
 
         <!-- VIDEOS SECTION -->
-        <section class="py-16 md:py-24">
+        <!-- Reduced section padding -->
+        <section class="py-10 md:py-16">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <!-- Reduced margin bottom -->
+                <div class="mb-8">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Videos
                     </h2>
                     <p class="text-slate-400 mt-2">The primary video content produced for this campaign.</p>
                 </div>
 
-                <!-- Replace these src links with your campaign YouTube embed links -->
-                <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Reduced grid gap -->
+                <div class="grid lg:grid-cols-2 gap-6">
                     <!-- Video 1 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/bzQ_ISDo3ts?si=feHCYV4GWok1nc5N" title="Campaign Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Pre-Event Advertisement Video</h4>
+                        <h4 class="text-xl font-bold text-white mt-4 mb-1 ml-2">Pre-Event Advertisement Video</h4>
                         <p class="text-slate-400 text-sm ml-2 mb-2">A short video including footage from last year to promote the event.</p>
                     </div>
 
@@ -183,7 +189,7 @@
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                             <iframe class="w-full h-full" src="Insert Link Here" title="Campaign Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Week Recap Video</h4>
+                        <h4 class="text-xl font-bold text-white mt-4 mb-1 ml-2">Week Recap Video</h4>
                         <p class="text-slate-400 text-sm ml-2 mb-2">A video recapping the week long event showing off the fun and learning that happened over the week.</p>
                     </div>
                 </div>
@@ -191,26 +197,28 @@
         </section>
 
         <!-- SOCIAL MEDIA POSTS SECTION -->
-        <section class="py-16 md:py-24 relative">
+        <!-- Reduced section padding -->
+        <section class="py-10 md:py-16 relative">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <!-- Reduced margin bottom -->
+                <div class="mb-8">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="smartphone" class="w-8 h-8 mr-4 text-brand-blue"></i> Social Media Content
                     </h2>
                     <p class="text-slate-400 mt-2">Daily Content Posted to Holy Cross Kearney's Socials</p>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <!-- Reduced grid gap -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
                     
                     <!-- 9:16 Stories & Reels Carousel -->
                     <div class="mx-auto w-full max-w-sm">
-                        <h4 class="text-xl font-bold text-white mb-4 text-center">Daily Story Posts</h4>
+                        <h4 class="text-xl font-bold text-white mb-3 text-center">Daily Story Posts</h4>
                         <div class="carousel-container relative w-full aspect-[9/16] rounded-2xl overflow-hidden group shadow-[0_0_30px_rgba(42,46,229,0.1)] border border-brand-gray/30 bg-brand-dark">
                             
                             <!-- Carousel Track -->
                             <div class="carousel-track flex h-full transition-transform duration-300 ease-out">
-                                <!-- Update these src links to your actual portrait images -->
-                                <img src="portfolio/social/story1.jpg" alt="Story 1" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMTwvdGV4dD48L3N2Zz4='">
+                                <img src="portfolio/social/story1.jpg" alt="Story 1" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMSwvdGV4dD48L3N2Zz4='">
                                 <img src="portfolio/social/story2.jpg" alt="Story 2" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMjwvdGV4dD48L3N2Zz4='">
                                 <img src="portfolio/social/story3.jpg" alt="Story 3" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjE5MjAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjk6MTYgUGhvdG8gMzwvdGV4dD48L3N2Zz4='">
                             </div>
@@ -230,12 +238,11 @@
 
                     <!-- 4:5 Instagram Feed Carousel -->
                     <div class="mx-auto w-full max-w-md lg:max-w-lg">
-                        <h4 class="text-xl font-bold text-white mb-4 text-center">Daily Posts to Instagram and Facebook</h4>
+                        <h4 class="text-xl font-bold text-white mb-3 text-center">Daily Posts to Instagram and Facebook</h4>
                         <div class="carousel-container relative w-full aspect-[4/5] rounded-2xl overflow-hidden group shadow-[0_0_30px_rgba(42,46,229,0.1)] border border-brand-gray/30 bg-brand-dark">
                             
                             <!-- Carousel Track -->
                             <div class="carousel-track flex h-full transition-transform duration-300 ease-out">
-                                <!-- Update these src links to your actual post images -->
                                 <img src="pictures/daily-post/Cover.png" alt="Post 1" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAxPC90ZXh0Pjwvc3ZnPg=='">
                                 <img src="pictures/daily-post/Artboard 1.png" alt="Post 2" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAyPC90ZXh0Pjwvc3ZnPg=='">
                                 <img src="pictures/daily-post/Artboard 2.png" alt="Post 3" draggable="false" class="w-full h-full flex-shrink-0 object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEzNTAiIGZpbGw9IiMxZTFlMWUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzRmNGY1MSIgZm9udC1zaXplPSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjQ6NSBQaG90byAzPC90ZXh0Pjwvc3ZnPg=='">
@@ -262,9 +269,11 @@
         </section>
 
         <!-- PHOTOGRAPHY GALLERY SECTION -->
-        <section class="py-16 md:py-24">
+        <!-- Reduced section padding -->
+        <section class="py-10 md:py-16">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <!-- Reduced margin bottom -->
+                <div class="mb-8">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photos
                     </h2>
@@ -280,10 +289,11 @@
         </section>
 
         <!-- CALL TO ACTION -->
-        <section class="py-20 relative overflow-hidden">
+        <!-- Reduced section padding and margins -->
+        <section class="py-12 md:py-16 relative overflow-hidden">
             <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Need a comprehensive media package?</h2>
-                <p class="text-xl text-slate-300 mb-10">Let's work together to tell your story with high-quality videography and photography tailored for your brand.</p>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4">Need a comprehensive media package?</h2>
+                <p class="text-xl text-slate-300 mb-8">Let's work together to tell your story with high-quality videography and photography tailored for your brand.</p>
                 <a href="contact.html" class="inline-block bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-10 py-4 rounded-full font-black text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(42,46,229,0.5)]">
                     Start a Project
                 </a>
@@ -291,12 +301,13 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
+        <!-- Reduced padding -->
+        <footer class="bg-brand-dark border-t border-brand-gray/30 py-8 mt-auto relative z-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <div class="flex justify-center items-center mb-8">
-                    <img src="../../logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
+                <div class="flex justify-center items-center mb-6">
+                    <img src="../../logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-14 md:h-20 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
                 </div>
-                <div class="flex justify-center space-x-8 mb-8">
+                <div class="flex justify-center space-x-8 mb-6">
                     <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                     </a>
@@ -323,20 +334,20 @@
 
     <script>
         const galleryImages = [
-            "/pictures/VBS1.jpg",                   // Picture 1
-            "/pictures/VBS2.jpg",         // Picture 2
-            "/pictures/VBS3.jpg",         // Picture 3
-            "/pictures/VBS4.jpg",         // Picture 4
-            "/pictures/VBS5.jpg",           // Picture 5
-            "/pictures/VBS6.jpg",           // Picture 6
-            "/pictures/VBS7.jpg",           // Picture 7
-            "/pictures/VBS8.jpg",           // Picture 8
-            "/pictures/VBS9.jpg",           // Picture 9
-            "/pictures/VBS10.jpg",          // Picture 10
-            "/pictures/VBS11.jpg",          // Picture 11
-            "/pictures/VBS12.jpg",          // Picture 12
-            "/pictures/VBS13.jpg",          // Picture 13
-            "/pictures/VBS14.jpg"           // Picture 14
+            "pictures/VBS1.jpg",                   // Picture 1
+            "pictures/VBS2.jpg",         // Picture 2
+            "pictures/VBS3.jpg",         // Picture 3
+            "pictures/VBS4.jpg",         // Picture 4
+            "pictures/VBS5.jpg",           // Picture 5
+            "pictures/VBS6.jpg",           // Picture 6
+            "pictures/VBS7.jpg",           // Picture 7
+            "pictures/VBS8.jpg",           // Picture 8
+            "pictures/VBS9.jpg",           // Picture 9
+            "pictures/VBS10.jpg",          // Picture 10
+            "pictures/VBS11.jpg",          // Picture 11
+            "pictures/VBS12.jpg",          // Picture 12
+            "pictures/VBS13.jpg",          // Picture 13
+            "pictures/VBS14.jpg"           // Picture 14
         ];
 
         // This loop automatically creates the HTML code for all 14 images!
