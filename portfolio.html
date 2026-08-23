@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="logos/icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;display=swap" rel="stylesheet">
     <script>
         tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], }, colors: { brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212', accent: '#2A2EE5', light: '#f8fafc', } } } } }
     </script>
@@ -36,7 +36,7 @@
             <div class="flex justify-between h-24 items-center">
                 <div class="flex-shrink-0 flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
                     <a href="index.html" aria-label="Go to Home">
-                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
+                        <img src="logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
                     </a>
                 </div>
                 
@@ -85,18 +85,32 @@
                         <i data-lucide="film" class="mr-3 text-brand-blue"></i> Videography
                     </h3>
                     <div class="grid md:grid-cols-2 gap-8">
+                        <!-- VIDEO CARD START -->
+                        <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/WfApkQ9V-T4?si=7JtcF3XGn2Wjahx_" title="KCHS Girls Soccer Senior Night Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mt-4 ml-2">Holy Cross Kearney Lifegroup AD Video</h4>
+                        </div>
+                        <!-- VIDEO CARD END -->
+
+                        <!-- VIDEO CARD START -->
                         <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
                             <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/bDHH41Fj-j4?si=9ql-CGtsqCYto-5H" title="KCHS Girls Soccer Senior Night Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
                             <h4 class="text-lg font-bold text-white mt-4 ml-2">KCHS Girls Soccer Senior Night Video</h4>
                         </div>
+                        <!-- VIDEO CARD END -->
+
+                        <!-- VIDEO CARD START -->
                         <div class="bg-brand-gray/10 p-2 rounded-2xl border border-brand-gray/20">
                             <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/T3ULkfSgBvY?si=jA58D9q-3fQJbHyD" title="2026 Boys 3-5th AAU State Wrestling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
                             <h4 class="text-lg font-bold text-white mt-4 ml-2">2026 Boys 3-5th AAU State Wrestling</h4>
                         </div>
+                        <!-- VIDEO CARD END -->
                     </div>
                 </div>
 
@@ -113,10 +127,31 @@
                             </div>
                         </div>
 
+                        <div onclick="openGallery('senior')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/senior/senior.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Seniors" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Seniors</span>
+                            </div>
+                        </div>
+
                         <div onclick="openGallery('family')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
                             <img src="portfolio/family/family.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Family" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
                                 <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Family</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openGallery('couple')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/couple/couple.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Couples" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Couples</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openGallery('wedding')" class="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer border border-brand-gray/20 shadow-2xl hover:border-brand-blue transition-all duration-300">
+                            <img src="portfolio/wedding/wedding.jpg" class="w-full h-full object-cover transition-all duration-700 ease-in-out blur-md md:group-hover:scale-110" onload="this.classList.remove('blur-md')" alt="Weddings" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
+                                <span class="text-white font-bold text-xl tracking-wide border-b-4 border-brand-blue pb-1">Weddings</span>
                             </div>
                         </div>
 
@@ -143,6 +178,35 @@
 
                     </div>
                 </div>
+
+                <!-- MEDIA CAMPAIGNS SECTION -->
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                        <i data-lucide="folder-open" class="mr-3 text-brand-blue"></i> Media Campaigns & Projects
+                    </h3>
+                    <p class="text-slate-400 mb-8 max-w-3xl">Comprehensive media campaigns featuring a curated mix of multi-part photography, promotional videos, and cohesive brand storytelling. Click on a project to view the full deliverables.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <!-- Campaign Card 1 -->
+                        <a href="media-campaigns/VBS-2026/Holy-Cross-VBS-2026.html" class="group block glass rounded-2xl overflow-hidden border border-brand-gray/20 hover:border-brand-blue transition-all duration-300">
+                            <div class="aspect-video relative overflow-hidden bg-brand-dark">
+                                <img src="media-campaigns/VBS-2026/pictures/VBS3.jpg" alt="VBS 2026" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNGY0ZjUxIiBkeT0iLjNlbSI+Q2FtcGFpZ24gQ292ZXIgSW1hZ2U8L3RleHQ+PC9zdmc+'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-90"></div>
+                                <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
+                                    <h4 class="text-2xl md:text-3xl font-black text-white mb-2 group-hover:text-brand-blue transition-colors">Holy Cross VBS 2026</h4>
+                                    <p class="text-slate-300 text-sm md:text-base line-clamp-2">A week coverage of Pictures, Videos and Social Media Posts for Holy Cross Kearney, Nebraska</p>
+                                </div>
+                            </div>
+                            <div class="px-6 md:px-8 py-4 border-t border-brand-gray/30 bg-brand-dark/50">
+                                <span class="text-brand-blue font-bold group-hover:text-white transition-colors flex items-center">
+                                    View Full Campaign <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -156,23 +220,23 @@
                 </div>
                 
                 <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    </div>
+                </div>
             </div>
         </section>
 
         <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <div class="flex justify-center items-center mb-8">
-                        <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
+                        <img src="logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy">
                 </div>
                 <div class="flex justify-center space-x-8 mb-8">
-                    <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <a href="https://instagram.com/braxtonmediaco" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" aria-label="YouTube" class="text-slate-400 hover:text-[#FF0000] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-slate-400 hover:text-[#FF0000] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
@@ -196,7 +260,7 @@
             const menu = document.getElementById('mobile-menu');
             const btn = document.getElementById('mobile-menu-btn');
             const isHidden = menu.classList.toggle('hidden');
-            if (btn) btn.setAttribute('aria-expanded', !isHidden);
+            if (btn) btn.setAttribute('aria-expanded', String(!isHidden));
         }
 
         // LIGHTBOX LOGIC
@@ -224,6 +288,14 @@
             }, 300); 
         }
 
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('hidden')) closeLightbox();
+            }
+        });
+
         // GALLERY DATA & RENDER
         const portfolioData = {
             portraits: [ 
@@ -232,14 +304,34 @@
                 { src: "portfolio/portraits/portrait3.jpg" }, 
                 { src: "portfolio/portraits/portrait4.jpg" }, 
                 { src: "portfolio/portraits/portrait5.jpg" }, ],
-            sports: [ 
-                { src: "portfolio/sports/sports.jpg" }, 
-                { src: "portfolio/sports/sports2.jpg" }, 
-                { src: "portfolio/sports/sports3.JPG" }, 
-                { src: "portfolio/sports/sports4.jpg" }, ],
+            senior: [ 
+                { src: "portfolio/senior/senior.jpg" }, 
+                { src: "portfolio/senior/senior2.jpg" }, 
+                { src: "portfolio/senior/senior3.jpg" },
+                { src: "portfolio/senior/senior4.jpg" }, ],
             family: [ 
                 { src: "portfolio/family/family.jpg" }, 
                 { src: "portfolio/family/family2.jpg" }, ],
+            couple: [ 
+                { src: "portfolio/couple/couple.jpg" }, 
+                { src: "portfolio/couple/couple2.jpg" },
+                { src: "portfolio/couple/couple3.jpg" },
+                { src: "portfolio/couple/couple4.jpg" },
+                { src: "portfolio/couple/couple5.jpg" }, ],
+            wedding: [ 
+                { src: "portfolio/wedding/wedding.jpg" }, 
+                { src: "portfolio/wedding/wedding2.jpg" },
+                { src: "portfolio/wedding/wedding3.jpg" }, ],
+            sports: [ 
+                { src: "portfolio/sports/sports.jpg" }, 
+                { src: "portfolio/sports/sports2.jpg" }, 
+                { src: "portfolio/sports/sports3.jpg" }, 
+                { src: "portfolio/sports/sports4.jpg" }, 
+                { src: "portfolio/sports/sports5.jpg" }, 
+                { src: "portfolio/sports/sports6.jpg" }, 
+                { src: "portfolio/sports/sports7.jpg" }, 
+                { src: "portfolio/sports/sports8.jpg" }, 
+                { src: "portfolio/sports/sports9.jpg" }, ],
             events: [ 
                 { src: "portfolio/events/events.jpg" },
                 { src: "portfolio/events/events1.jpg" }, 
