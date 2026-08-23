@@ -92,6 +92,17 @@
       <p class="text-slate-500 text-xs mt-3">Select one or both. Package options below will update.</p>
     </section>
 
+    <!-- Google Sheet Sync -->
+    <section class="glass rounded-3xl p-6 md:p-8">
+      <h2 class="text-xl font-black text-white mb-2 flex items-center gap-2"><i data-lucide="table-2" class="w-5 h-5 text-brand-blue"></i> Google Sheet Sync</h2>
+      <p class="text-slate-500 text-xs mb-4">Paste your Apps Script Web App URL here. Every download will log this client + project to your sheet automatically.</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input id="sheetWebhookUrl" type="url" placeholder="https://script.google.com/macros/s/AKfycbx9P5IKVzJC1UINWflzMZWx0URS2UZqlSJQ7RmVHxDU80-6LGQU4qiaUOHCuAJPSLVc/exec" class="flex-1 bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-blue">
+        <button onclick="saveWebhookUrl()" class="bg-brand-blue hover:bg-white hover:text-brand-blue text-white font-black px-6 py-3 rounded-xl transition-colors">Save</button>
+      </div>
+      <p id="webhookStatus" class="text-xs mt-2 font-bold"></p>
+    </section>
+
     <!-- Photo Packages -->
     <section id="photoSection" class="glass rounded-3xl p-6 md:p-8 hidden">
       <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="camera" class="w-5 h-5 text-brand-blue"></i> Photography Package</h2>
@@ -197,22 +208,25 @@
   </div>
 </div>
 
+<!-- TOAST -->
+<div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full font-bold text-sm shadow-2xl transition-all"></div>
+
 <script>
 lucide.createIcons();
 
 // ---------- PRICING DATA ----------
 const PHOTO_CATEGORIES = {
-  "Portrait Session": { basic: 150, standard: 200, premium: 250 },
-  "Family / Senior Session": { basic: 200, standard: 300, },
-  "Real Estate": { basic: 200, standard: 275, premium: 400 },
+  "Portrait Session": { basic: 150, standard: 250, premium: 400 },
+  "Family / Senior Session": { basic: 200, standard: 300, premium: 450 },
+  "Real Estate": { basic: 175, standard: 275, premium: 400 },
   "Sports / Events": { basic: 200, standard: 350, premium: 500 },
-  "Wedding Photography": { basic: 400, standard: 500, premium: 600 }
+  "Wedding Photography": { basic: 1200, standard: 1800, premium: 2500 }
 };
 const VIDEO_CATEGORIES = {
-  "Event Video": { basic: 400, standard: 500, premium: 800 },
-  "Wedding Video": { basic: 500, standard: 600, premium: 700 },
-  "Promotional / Brand Video": { basic: 500, standard: 700, premium: 1000 },
-  "Real Estate Video": { basic: 100 }
+  "Event Video": { basic: 300, standard: 500, premium: 800 },
+  "Wedding Video": { basic: 1500, standard: 2200, premium: 3200 },
+  "Promotional / Brand Video": { basic: 400, standard: 700, premium: 1100 },
+  "Real Estate Video": { basic: 250, standard: 400, premium: 600 }
 };
 const TIER_DETAILS = {
   basic: { label: "Basic", desc: "Core coverage, standard turnaround" },
@@ -220,13 +234,13 @@ const TIER_DETAILS = {
   premium: { label: "Premium", desc: "Full coverage, fastest turnaround" }
 };
 const ADDONS = [
-  { id: "drone", label: "Drone Footage", price: 50 },
-  { id: "secondShooter", label: "Second Shooter", price: 100 },
-  { id: "rush", label: "Rush Delivery (48hr)", price: 100 },
-  { id: "extraHour", label: "Extra Hour of Coverage", price: 50, qty: true },
-  { id: "extraPhotos", label: "Additional Edited Photos (25)", price: 25, qty: true },
+  { id: "drone", label: "Drone Footage", price: 150 },
+  { id: "secondShooter", label: "Second Shooter", price: 200 },
+  { id: "rush", label: "Rush Delivery (48hr)", price: 150 },
+  { id: "extraHour", label: "Extra Hour of Coverage", price: 100, qty: true },
+  { id: "extraPhotos", label: "Additional Edited Photos (25)", price: 75, qty: true },
   { id: "rawFiles", label: "Raw Files / Footage", price: 100 },
-  { id: "prints", label: "Printed Photo Package", price: 100 }
+  { id: "prints", label: "Printed Photo Package", price: 120 }
 ];
 
 // ---------- STATE ----------
@@ -398,6 +412,89 @@ function recalc() {
   window._quoteCalc = { lines, subtotal, travel, discount, tax, total, miles, taxPct };
 }
 recalc();
+
+// ---------- GOOGLE SHEET SYNC ----------
+const webhookInput = document.getElementById('sheetWebhookUrl');
+const webhookStatus = document.getElementById('webhookStatus');
+
+(function loadWebhookUrl() {
+  const saved = localStorage.getItem('bmc_sheet_webhook_url');
+  if (saved) {
+    webhookInput.value = saved;
+    webhookStatus.textContent = 'Connected — downloads will sync to this sheet.';
+    webhookStatus.className = 'text-xs mt-2 font-bold text-green-400';
+  }
+})();
+
+function saveWebhookUrl() {
+  const url = webhookInput.value.trim();
+  if (!url) {
+    localStorage.removeItem('bmc_sheet_webhook_url');
+    webhookStatus.textContent = 'Sync disabled — no URL saved.';
+    webhookStatus.className = 'text-xs mt-2 font-bold text-slate-500';
+    return;
+  }
+  localStorage.setItem('bmc_sheet_webhook_url', url);
+  webhookStatus.textContent = 'Saved — downloads will sync to this sheet.';
+  webhookStatus.className = 'text-xs mt-2 font-bold text-green-400';
+  showToast('Google Sheet connected', false);
+}
+
+function buildSyncPayload() {
+  const calc = window._quoteCalc || { total: 0 };
+  const serviceTypes = [];
+  if (state.photoCategory && state.photoTier) serviceTypes.push('Photography');
+  if (state.videoCategory && state.videoTier) serviceTypes.push('Videography');
+
+  const packageParts = [];
+  if (state.photoCategory && state.photoTier) packageParts.push(`${state.photoCategory} (${TIER_DETAILS[state.photoTier].label})`);
+  if (state.videoCategory && state.videoTier) packageParts.push(`${state.videoCategory} (${TIER_DETAILS[state.videoTier].label})`);
+
+  const addOnLabels = ADDONS
+    .filter(a => (state.addons[a.id] || 0) > 0)
+    .map(a => a.qty ? `${a.label} x${state.addons[a.id]}` : a.label);
+  state.customItems.forEach(item => addOnLabels.push(item.label));
+
+  const eventDate = document.getElementById('eventDate').value;
+
+  return {
+    clientName: document.getElementById('clientName').value.trim(),
+    company: document.getElementById('clientCompany').value.trim(),
+    email: document.getElementById('clientEmail').value.trim(),
+    phone: document.getElementById('clientPhone').value.trim(),
+    date: eventDate || new Date().toISOString().slice(0, 10),
+    serviceType: serviceTypes.join(' + ') || '—',
+    packageSummary: packageParts.join('; ') || '—',
+    addOns: addOnLabels.join(', ') || '—',
+    total: calc.total.toFixed(2),
+    notes: document.getElementById('quoteNotes').value.trim()
+  };
+}
+
+async function syncToGoogleSheet() {
+  const url = localStorage.getItem('bmc_sheet_webhook_url');
+  if (!url) return; // sync not configured — silently skip
+  const payload = buildSyncPayload();
+  if (!payload.clientName) return; // nothing meaningful to log yet
+  try {
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // avoids a CORS preflight Apps Script can't handle
+      body: JSON.stringify(payload)
+    });
+    showToast('Synced to Google Sheet ✓', false);
+  } catch (err) {
+    showToast('Sheet sync failed — check your connection', true);
+  }
+}
+
+function showToast(message, isError) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full font-bold text-sm shadow-2xl transition-all ${isError ? 'bg-red-500 text-white' : 'bg-brand-blue text-white'}`;
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => toast.classList.add('hidden'), 3500);
+}
 
 // ---------- LOGO HELPER (rasterizes the SVG logo so jsPDF can embed it) ----------
 function loadImageAsDataURL(src) {
@@ -599,6 +696,7 @@ async function downloadPDF() {
   const clientName = document.getElementById('clientName').value || 'Client';
   const fileClient = clientName.replace(/[^a-z0-9]/gi, '_');
   doc.save(`BraxtonMediaCo_Quote_${fileClient}.pdf`);
+  syncToGoogleSheet();
 }
 
 document.getElementById('previewModal').addEventListener('click', e => {
