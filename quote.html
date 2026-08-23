@@ -202,17 +202,17 @@ lucide.createIcons();
 
 // ---------- PRICING DATA ----------
 const PHOTO_CATEGORIES = {
-  "Portrait Session": { basic: 150, standard: 250, premium: 400 },
-  "Family / Senior Session": { basic: 200, standard: 300, premium: 450 },
-  "Real Estate": { basic: 175, standard: 275, premium: 400 },
+  "Portrait Session": { basic: 150, standard: 200, premium: 250 },
+  "Family / Senior Session": { basic: 200, standard: 300, },
+  "Real Estate": { basic: 200, standard: 275, premium: 400 },
   "Sports / Events": { basic: 200, standard: 350, premium: 500 },
-  "Wedding Photography": { basic: 1200, standard: 1800, premium: 2500 }
+  "Wedding Photography": { basic: 400, standard: 500, premium: 600 }
 };
 const VIDEO_CATEGORIES = {
-  "Event Video": { basic: 300, standard: 500, premium: 800 },
-  "Wedding Video": { basic: 1500, standard: 2200, premium: 3200 },
-  "Promotional / Brand Video": { basic: 400, standard: 700, premium: 1100 },
-  "Real Estate Video": { basic: 250, standard: 400, premium: 600 }
+  "Event Video": { basic: 400, standard: 500, premium: 800 },
+  "Wedding Video": { basic: 500, standard: 600, premium: 700 },
+  "Promotional / Brand Video": { basic: 500, standard: 700, premium: 1000 },
+  "Real Estate Video": { basic: 100 }
 };
 const TIER_DETAILS = {
   basic: { label: "Basic", desc: "Core coverage, standard turnaround" },
@@ -220,13 +220,13 @@ const TIER_DETAILS = {
   premium: { label: "Premium", desc: "Full coverage, fastest turnaround" }
 };
 const ADDONS = [
-  { id: "drone", label: "Drone Footage", price: 150 },
-  { id: "secondShooter", label: "Second Shooter", price: 200 },
-  { id: "rush", label: "Rush Delivery (48hr)", price: 150 },
-  { id: "extraHour", label: "Extra Hour of Coverage", price: 100, qty: true },
-  { id: "extraPhotos", label: "Additional Edited Photos (25)", price: 75, qty: true },
+  { id: "drone", label: "Drone Footage", price: 50 },
+  { id: "secondShooter", label: "Second Shooter", price: 100 },
+  { id: "rush", label: "Rush Delivery (48hr)", price: 100 },
+  { id: "extraHour", label: "Extra Hour of Coverage", price: 50, qty: true },
+  { id: "extraPhotos", label: "Additional Edited Photos (25)", price: 25, qty: true },
   { id: "rawFiles", label: "Raw Files / Footage", price: 100 },
-  { id: "prints", label: "Printed Photo Package", price: 120 }
+  { id: "prints", label: "Printed Photo Package", price: 100 }
 ];
 
 // ---------- STATE ----------
