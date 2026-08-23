@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Calculator (Internal) | Braxton Media Co</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+      colors: { brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212', light: '#f8fafc' } } } }
+  }
+</script>
+<style>
+  body { background:#121212; }
+  .glass { background: rgba(30,30,30,0.5); backdrop-filter: blur(10px); border:1px solid rgba(79,79,81,0.3); }
+  .pkg-card { cursor:pointer; transition:all .2s ease; }
+  .pkg-card.selected { border-color:#2A2EE5 !important; background: rgba(42,46,229,0.12); box-shadow:0 0 20px rgba(42,46,229,0.25); }
+  .addon-row.selected { border-color:#2A2EE5 !important; background: rgba(42,46,229,0.08); }
+  input[type=number]::-webkit-inner-spin-button { opacity:1; }
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-thumb { background:#4F4F51; border-radius:4px; }
+</style>
+</head>
+<body class="text-slate-300 font-sans antialiased min-h-screen">
+
+<header class="border-b border-brand-gray/30 bg-brand-dark/90 sticky top-0 z-40 backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="logos/Bottom Third Logo.svg" alt="Braxton Media Co" class="h-12 md:h-16 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]">
+      <div>
+        <h1 class="text-xl md:text-2xl font-black text-white tracking-tight">Quote <span class="text-brand-blue">Builder</span></h1>
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Internal tool — not for client viewing</p>
+      </div>
+    </div>
+    <button onclick="resetAll()" class="hidden sm:flex items-center gap-2 text-slate-400 hover:text-white text-sm font-bold border border-brand-gray/40 rounded-full px-4 py-2 hover:border-brand-blue/60 transition-colors">
+      <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset
+    </button>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid lg:grid-cols-3 gap-8">
+
+  <!-- LEFT / MAIN COLUMN -->
+  <div class="lg:col-span-2 space-y-8">
+
+    <!-- Client Info -->
+    <section class="glass rounded-3xl p-6 md:p-8">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="user" class="w-5 h-5 text-brand-blue"></i> Client & Project Info</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Client Name</label>
+          <input id="clientName" type="text" placeholder="Jane Doe" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Company (optional)</label>
+          <input id="clientCompany" type="text" placeholder="Doe Realty" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Email</label>
+          <input id="clientEmail" type="email" placeholder="jane@email.com" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Phone</label>
+          <input id="clientPhone" type="tel" placeholder="(308) 555-0100" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Event / Shoot Date</label>
+          <input id="eventDate" type="date" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Location</label>
+          <input id="eventLocation" type="text" placeholder="Kearney, NE" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+      </div>
+      <div class="mt-4">
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Notes for quote (optional)</label>
+        <textarea id="quoteNotes" rows="2" placeholder="Anything specific to mention on the quote..." class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue resize-none"></textarea>
+      </div>
+    </section>
+
+    <!-- Service Type Toggle -->
+    <section class="glass rounded-3xl p-6 md:p-8">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="sliders-horizontal" class="w-5 h-5 text-brand-blue"></i> Service Type</h2>
+      <div class="flex flex-wrap gap-3" id="serviceTypeToggle">
+        <button data-type="photo" class="type-btn px-6 py-3 rounded-full font-bold border border-brand-gray/40 text-white hover:border-brand-blue/60 transition-colors">Photography</button>
+        <button data-type="video" class="type-btn px-6 py-3 rounded-full font-bold border border-brand-gray/40 text-white hover:border-brand-blue/60 transition-colors">Videography</button>
+      </div>
+      <p class="text-slate-500 text-xs mt-3">Select one or both. Package options below will update.</p>
+    </section>
+
+    <!-- Photo Packages -->
+    <section id="photoSection" class="glass rounded-3xl p-6 md:p-8 hidden">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="camera" class="w-5 h-5 text-brand-blue"></i> Photography Package</h2>
+      <div>
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Category</label>
+        <select id="photoCategory" class="mt-1 mb-6 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue"></select>
+      </div>
+      <div id="photoPackages" class="grid sm:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- Video Packages -->
+    <section id="videoSection" class="glass rounded-3xl p-6 md:p-8 hidden">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="video" class="w-5 h-5 text-brand-blue"></i> Videography Package</h2>
+      <div>
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Category</label>
+        <select id="videoCategory" class="mt-1 mb-6 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue"></select>
+      </div>
+      <div id="videoPackages" class="grid sm:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- Add-ons -->
+    <section class="glass rounded-3xl p-6 md:p-8">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="plus-circle" class="w-5 h-5 text-brand-blue"></i> Add-ons</h2>
+      <div id="addonsList" class="space-y-3"></div>
+
+      <div class="mt-6 pt-6 border-t border-brand-gray/30">
+        <h3 class="text-sm font-black text-white uppercase tracking-wide mb-3">Custom Line Item</h3>
+        <div class="grid sm:grid-cols-[1fr_140px_auto] gap-3">
+          <input id="customLabel" type="text" placeholder="Description" class="bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+          <input id="customPrice" type="number" min="0" step="1" placeholder="$ amount" class="bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+          <button onclick="addCustomItem()" class="bg-brand-blue hover:bg-white hover:text-brand-blue text-white font-black px-6 py-3 rounded-xl transition-colors">Add</button>
+        </div>
+        <div id="customItemsList" class="mt-3 space-y-2"></div>
+      </div>
+    </section>
+
+    <!-- Travel & Discount -->
+    <section class="glass rounded-3xl p-6 md:p-8">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="calculator" class="w-5 h-5 text-brand-blue"></i> Travel & Adjustments</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Miles over 30 (round trip)</label>
+          <input id="travelMiles" type="number" min="0" value="0" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+          <p class="text-slate-500 text-xs mt-1">$0.50/mile</p>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Discount ($)</label>
+          <input id="discountFlat" type="number" min="0" value="0" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wide">Sales Tax (%)</label>
+          <input id="taxPercent" type="number" min="0" step="0.1" value="0" class="mt-1 w-full bg-brand-dark border border-brand-gray/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RIGHT / SUMMARY SIDEBAR -->
+  <div class="lg:col-span-1">
+    <div class="glass rounded-3xl p-6 md:p-8 sticky top-28">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i data-lucide="receipt" class="w-5 h-5 text-brand-blue"></i> Quote Summary</h2>
+      <div id="summaryLines" class="space-y-2 text-sm mb-4 max-h-72 overflow-y-auto pr-1">
+        <p class="text-slate-500 italic">Select a package to begin...</p>
+      </div>
+      <div class="border-t border-brand-gray/30 pt-4 space-y-1 text-sm">
+        <div class="flex justify-between text-slate-400"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
+        <div class="flex justify-between text-slate-400"><span>Travel</span><span id="sumTravel">$0.00</span></div>
+        <div class="flex justify-between text-slate-400"><span>Discount</span><span id="sumDiscount">-$0.00</span></div>
+        <div class="flex justify-between text-slate-400"><span>Tax</span><span id="sumTax">$0.00</span></div>
+      </div>
+      <div class="border-t border-brand-gray/30 mt-3 pt-4 flex justify-between items-center">
+        <span class="text-lg font-black text-white">Total</span>
+        <span id="sumTotal" class="text-3xl font-black text-brand-blue">$0.00</span>
+      </div>
+      <button onclick="previewPDF()" class="mt-6 w-full bg-transparent border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-black py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+        <i data-lucide="eye" class="w-5 h-5"></i> Preview Quote
+      </button>
+      <button onclick="downloadPDF()" class="mt-3 w-full bg-brand-blue hover:bg-white hover:text-brand-blue text-white font-black py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+        <i data-lucide="file-down" class="w-5 h-5"></i> Download PDF Quote
+      </button>
+      <button onclick="resetAll()" class="sm:hidden mt-3 w-full text-slate-400 hover:text-white text-sm font-bold border border-brand-gray/40 rounded-full py-3">Reset All</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- PREVIEW MODAL -->
+<div id="previewModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="glass rounded-3xl w-full max-w-4xl h-[90vh] flex flex-col overflow-hidden" style="background: rgba(24,24,24,0.97);">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-brand-gray/30">
+      <h3 class="text-lg font-black text-white flex items-center gap-2"><i data-lucide="eye" class="w-5 h-5 text-brand-blue"></i> Quote Preview</h3>
+      <div class="flex items-center gap-3">
+        <button onclick="downloadPDF()" class="bg-brand-blue hover:bg-white hover:text-brand-blue text-white font-bold text-sm px-5 py-2 rounded-full transition-all duration-300 flex items-center gap-2">
+          <i data-lucide="file-down" class="w-4 h-4"></i> Download
+        </button>
+        <button onclick="closePreview()" class="text-slate-400 hover:text-white p-2" aria-label="Close preview">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    <iframe id="previewFrame" class="flex-1 w-full bg-slate-700" title="PDF quote preview"></iframe>
+  </div>
+</div>
+
+<script>
+lucide.createIcons();
+
+// ---------- PRICING DATA ----------
+const PHOTO_CATEGORIES = {
+  "Portrait Session": { basic: 150, standard: 250, premium: 400 },
+  "Family / Senior Session": { basic: 200, standard: 300, premium: 450 },
+  "Real Estate": { basic: 175, standard: 275, premium: 400 },
+  "Sports / Events": { basic: 200, standard: 350, premium: 500 },
+  "Wedding Photography": { basic: 1200, standard: 1800, premium: 2500 }
+};
+const VIDEO_CATEGORIES = {
+  "Event Video": { basic: 300, standard: 500, premium: 800 },
+  "Wedding Video": { basic: 1500, standard: 2200, premium: 3200 },
+  "Promotional / Brand Video": { basic: 400, standard: 700, premium: 1100 },
+  "Real Estate Video": { basic: 250, standard: 400, premium: 600 }
+};
+const TIER_DETAILS = {
+  basic: { label: "Basic", desc: "Core coverage, standard turnaround" },
+  standard: { label: "Standard", desc: "Extended coverage, priority edit" },
+  premium: { label: "Premium", desc: "Full coverage, fastest turnaround" }
+};
+const ADDONS = [
+  { id: "drone", label: "Drone Footage", price: 150 },
+  { id: "secondShooter", label: "Second Shooter", price: 200 },
+  { id: "rush", label: "Rush Delivery (48hr)", price: 150 },
+  { id: "extraHour", label: "Extra Hour of Coverage", price: 100, qty: true },
+  { id: "extraPhotos", label: "Additional Edited Photos (25)", price: 75, qty: true },
+  { id: "rawFiles", label: "Raw Files / Footage", price: 100 },
+  { id: "prints", label: "Printed Photo Package", price: 120 }
+];
+
+// ---------- STATE ----------
+let state = {
+  types: new Set(),
+  photoCategory: null,
+  photoTier: null,
+  videoCategory: null,
+  videoTier: null,
+  addons: {},   // id -> qty (0 = off)
+  customItems: [] // {label, price}
+};
+
+// ---------- SERVICE TYPE TOGGLE ----------
+document.querySelectorAll('.type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.dataset.type;
+    if (state.types.has(type)) { state.types.delete(type); btn.classList.remove('selected'); btn.style.borderColor=''; btn.style.background=''; btn.style.color=''; }
+    else { state.types.add(type); btn.classList.add('selected'); btn.style.borderColor='#2A2EE5'; btn.style.background='rgba(42,46,229,0.15)'; btn.style.color='#fff'; }
+    document.getElementById('photoSection').classList.toggle('hidden', !state.types.has('photo'));
+    document.getElementById('videoSection').classList.toggle('hidden', !state.types.has('video'));
+    recalc();
+  });
+});
+
+// ---------- BUILD CATEGORY SELECTS ----------
+function buildCategorySelect(selectEl, categories, onChange) {
+  selectEl.innerHTML = '<option value="">Choose a category...</option>' +
+    Object.keys(categories).map(c => `<option value="${c}">${c}</option>`).join('');
+  selectEl.addEventListener('change', onChange);
+}
+buildCategorySelect(document.getElementById('photoCategory'), PHOTO_CATEGORIES, e => {
+  state.photoCategory = e.target.value || null;
+  state.photoTier = null;
+  renderPackageCards('photoPackages', PHOTO_CATEGORIES[state.photoCategory], 'photo');
+  recalc();
+});
+buildCategorySelect(document.getElementById('videoCategory'), VIDEO_CATEGORIES, e => {
+  state.videoCategory = e.target.value || null;
+  state.videoTier = null;
+  renderPackageCards('videoPackages', VIDEO_CATEGORIES[state.videoCategory], 'video');
+  recalc();
+});
+
+function renderPackageCards(containerId, tiers, kind) {
+  const container = document.getElementById(containerId);
+  if (!tiers) { container.innerHTML = ''; return; }
+  container.innerHTML = Object.entries(tiers).map(([tierKey, price]) => `
+    <div class="pkg-card border border-brand-gray/40 rounded-2xl p-5" data-kind="${kind}" data-tier="${tierKey}">
+      <h4 class="font-black text-white text-lg">${TIER_DETAILS[tierKey].label}</h4>
+      <p class="text-slate-500 text-xs mb-3">${TIER_DETAILS[tierKey].desc}</p>
+      <p class="text-brand-blue font-black text-2xl">$${price.toLocaleString()}</p>
+    </div>`).join('');
+  container.querySelectorAll('.pkg-card').forEach(card => {
+    card.addEventListener('click', () => {
+      container.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      if (kind === 'photo') state.photoTier = card.dataset.tier;
+      else state.videoTier = card.dataset.tier;
+      recalc();
+    });
+  });
+}
+
+// ---------- ADD-ONS ----------
+const addonsListEl = document.getElementById('addonsList');
+addonsListEl.innerHTML = ADDONS.map(a => `
+  <div class="addon-row flex items-center justify-between border border-brand-gray/40 rounded-xl px-4 py-3" data-id="${a.id}">
+    <div class="flex items-center gap-3">
+      <input type="checkbox" id="chk-${a.id}" class="w-5 h-5 accent-brand-blue">
+      <label for="chk-${a.id}" class="font-bold text-white cursor-pointer">${a.label}</label>
+    </div>
+    <div class="flex items-center gap-3">
+      ${a.qty ? `<input type="number" min="1" value="1" id="qty-${a.id}" class="w-16 bg-brand-dark border border-brand-gray/40 rounded-lg px-2 py-1 text-white text-sm hidden">` : ''}
+      <span class="text-brand-blue font-bold text-sm">$${a.price}${a.qty ? ' ea' : ''}</span>
+    </div>
+  </div>`).join('');
+
+ADDONS.forEach(a => {
+  const chk = document.getElementById(`chk-${a.id}`);
+  const row = addonsListEl.querySelector(`[data-id="${a.id}"]`);
+  const qtyInput = a.qty ? document.getElementById(`qty-${a.id}`) : null;
+  chk.addEventListener('change', () => {
+    row.classList.toggle('selected', chk.checked);
+    if (qtyInput) qtyInput.classList.toggle('hidden', !chk.checked);
+    state.addons[a.id] = chk.checked ? (qtyInput ? parseInt(qtyInput.value || 1) : 1) : 0;
+    recalc();
+  });
+  if (qtyInput) qtyInput.addEventListener('input', () => {
+    state.addons[a.id] = chk.checked ? parseInt(qtyInput.value || 1) : 0;
+    recalc();
+  });
+});
+
+// ---------- CUSTOM ITEMS ----------
+function addCustomItem() {
+  const label = document.getElementById('customLabel').value.trim();
+  const price = parseFloat(document.getElementById('customPrice').value);
+  if (!label || isNaN(price)) return;
+  state.customItems.push({ label, price });
+  document.getElementById('customLabel').value = '';
+  document.getElementById('customPrice').value = '';
+  renderCustomItems();
+  recalc();
+}
+function removeCustomItem(idx) {
+  state.customItems.splice(idx, 1);
+  renderCustomItems();
+  recalc();
+}
+function renderCustomItems() {
+  const el = document.getElementById('customItemsList');
+  el.innerHTML = state.customItems.map((item, i) => `
+    <div class="flex items-center justify-between bg-brand-dark border border-brand-gray/30 rounded-xl px-4 py-2">
+      <span class="text-slate-300 text-sm">${item.label}</span>
+      <div class="flex items-center gap-3">
+        <span class="text-brand-blue font-bold text-sm">$${item.price.toLocaleString()}</span>
+        <button onclick="removeCustomItem(${i})" class="text-slate-500 hover:text-red-400"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+    </div>`).join('');
+  lucide.createIcons();
+}
+
+// ---------- TRAVEL / DISCOUNT / TAX LISTENERS ----------
+['travelMiles','discountFlat','taxPercent'].forEach(id => {
+  document.getElementById(id).addEventListener('input', recalc);
+});
+
+// ---------- CALCULATE + RENDER SUMMARY ----------
+function getLineItems() {
+  const lines = [];
+  if (state.photoCategory && state.photoTier) {
+    lines.push({ label: `Photography — ${state.photoCategory} (${TIER_DETAILS[state.photoTier].label})`, price: PHOTO_CATEGORIES[state.photoCategory][state.photoTier] });
+  }
+  if (state.videoCategory && state.videoTier) {
+    lines.push({ label: `Videography — ${state.videoCategory} (${TIER_DETAILS[state.videoTier].label})`, price: VIDEO_CATEGORIES[state.videoCategory][state.videoTier] });
+  }
+  ADDONS.forEach(a => {
+    const qty = state.addons[a.id] || 0;
+    if (qty > 0) lines.push({ label: a.qty ? `${a.label} x${qty}` : a.label, price: a.price * qty });
+  });
+  state.customItems.forEach(item => lines.push({ label: item.label, price: item.price }));
+  return lines;
+}
+
+function recalc() {
+  const lines = getLineItems();
+  const subtotal = lines.reduce((sum, l) => sum + l.price, 0);
+  const miles = parseFloat(document.getElementById('travelMiles').value) || 0;
+  const travel = miles * 0.5;
+  const discount = parseFloat(document.getElementById('discountFlat').value) || 0;
+  const taxPct = parseFloat(document.getElementById('taxPercent').value) || 0;
+  const taxable = Math.max(subtotal + travel - discount, 0);
+  const tax = taxable * (taxPct / 100);
+  const total = taxable + tax;
+
+  const summaryEl = document.getElementById('summaryLines');
+  summaryEl.innerHTML = lines.length ? lines.map(l => `
+    <div class="flex justify-between text-slate-300">
+      <span>${l.label}</span><span class="font-bold">$${l.price.toLocaleString(undefined,{minimumFractionDigits:2})}</span>
+    </div>`).join('') : '<p class="text-slate-500 italic">Select a package to begin...</p>';
+
+  document.getElementById('sumSubtotal').textContent = `$${subtotal.toLocaleString(undefined,{minimumFractionDigits:2})}`;
+  document.getElementById('sumTravel').textContent = `$${travel.toLocaleString(undefined,{minimumFractionDigits:2})}`;
+  document.getElementById('sumDiscount').textContent = `-$${discount.toLocaleString(undefined,{minimumFractionDigits:2})}`;
+  document.getElementById('sumTax').textContent = `$${tax.toLocaleString(undefined,{minimumFractionDigits:2})}`;
+  document.getElementById('sumTotal').textContent = `$${total.toLocaleString(undefined,{minimumFractionDigits:2})}`;
+
+  window._quoteCalc = { lines, subtotal, travel, discount, tax, total, miles, taxPct };
+}
+recalc();
+
+// ---------- LOGO HELPER (rasterizes the SVG logo so jsPDF can embed it) ----------
+function loadImageAsDataURL(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const scale = 4; // render at higher res for crisp print output
+      canvas.width = img.naturalWidth * scale;
+      canvas.height = img.naturalHeight * scale;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/png'));
+    };
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+// ---------- PDF GENERATION ----------
+async function buildPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+  const calc = window._quoteCalc;
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const margin = 50;
+  let y = 60;
+
+  const brandBlue = [42, 46, 229];
+  const darkGray = [40, 40, 40];
+  const midGray = [110, 110, 110];
+
+  // Header — logo (falls back to text wordmark if the logo file can't be loaded, e.g. opened from a different folder)
+  let logoLoaded = false;
+  try {
+    const logoDataUrl = await loadImageAsDataURL('logos/Bottom Third Logo.svg');
+    const logoProps = doc.getImageProperties(logoDataUrl);
+    const logoHeight = 34;
+    const logoWidth = (logoProps.width / logoProps.height) * logoHeight;
+    doc.addImage(logoDataUrl, 'PNG', margin, y - 24, logoWidth, logoHeight);
+    logoLoaded = true;
+  } catch (e) {
+    logoLoaded = false;
+  }
+  if (!logoLoaded) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(22);
+    doc.setTextColor(...darkGray);
+    doc.text('BRAXTON MEDIA CO', margin, y);
+  }
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...midGray);
+  doc.text('Photography & Videography | Kearney, NE', margin, y + 16);
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(...brandBlue);
+  doc.text('PROJECT QUOTE', pageWidth - margin, y, { align: 'right' });
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(...midGray);
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  doc.text(`Date: ${today}`, pageWidth - margin, y + 16, { align: 'right' });
+
+  y += 40;
+  doc.setDrawColor(...brandBlue);
+  doc.setLineWidth(1.5);
+  doc.line(margin, y, pageWidth - margin, y);
+  y += 30;
+
+  // Client info block
+  const clientName = document.getElementById('clientName').value || '—';
+  const clientCompany = document.getElementById('clientCompany').value;
+  const clientEmail = document.getElementById('clientEmail').value;
+  const clientPhone = document.getElementById('clientPhone').value;
+  const eventDate = document.getElementById('eventDate').value;
+  const eventLocation = document.getElementById('eventLocation').value;
+  const quoteNotes = document.getElementById('quoteNotes').value;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10);
+  doc.setTextColor(...darkGray);
+  doc.text('PREPARED FOR', margin, y);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(11);
+  y += 16;
+  doc.text(clientName, margin, y);
+  if (clientCompany) { y += 14; doc.text(clientCompany, margin, y); }
+  if (clientEmail) { y += 14; doc.text(clientEmail, margin, y); }
+  if (clientPhone) { y += 14; doc.text(clientPhone, margin, y); }
+
+  let yRight = y - (clientCompany ? 14 : 0) - (clientEmail ? 14 : 0) - (clientPhone ? 14 : 0);
+  doc.setFont('helvetica', 'bold');
+  doc.text('PROJECT DETAILS', pageWidth - margin, yRight - 16, { align: 'right' });
+  doc.setFont('helvetica', 'normal');
+  if (eventDate) { doc.text(`Date: ${new Date(eventDate + 'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`, pageWidth - margin, yRight, { align: 'right' }); yRight += 14; }
+  if (eventLocation) { doc.text(`Location: ${eventLocation}`, pageWidth - margin, yRight, { align: 'right' }); }
+
+  y += 35;
+  doc.setDrawColor(220, 220, 220);
+  doc.setLineWidth(0.5);
+  doc.line(margin, y, pageWidth - margin, y);
+  y += 25;
+
+  // Table header
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10);
+  doc.setTextColor(...darkGray);
+  doc.text('DESCRIPTION', margin, y);
+  doc.text('AMOUNT', pageWidth - margin, y, { align: 'right' });
+  y += 8;
+  doc.setDrawColor(...darkGray);
+  doc.line(margin, y, pageWidth - margin, y);
+  y += 20;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(11);
+  calc.lines.forEach(l => {
+    if (y > 680) { doc.addPage(); y = 60; }
+    doc.setTextColor(60, 60, 60);
+    doc.text(l.label, margin, y);
+    doc.text(`$${l.price.toLocaleString(undefined,{minimumFractionDigits:2})}`, pageWidth - margin, y, { align: 'right' });
+    y += 20;
+  });
+
+  y += 5;
+  doc.setDrawColor(220, 220, 220);
+  doc.line(margin, y, pageWidth - margin, y);
+  y += 22;
+
+  function totalsRow(label, value, bold) {
+    doc.setFont('helvetica', bold ? 'bold' : 'normal');
+    doc.setFontSize(bold ? 13 : 11);
+    doc.setTextColor(...(bold ? brandBlue : midGray));
+    doc.text(label, pageWidth - margin - 150, y);
+    doc.text(`$${value.toLocaleString(undefined,{minimumFractionDigits:2})}`, pageWidth - margin, y, { align: 'right' });
+    y += bold ? 24 : 18;
+  }
+  totalsRow('Subtotal', calc.subtotal, false);
+  if (calc.miles > 0) totalsRow(`Travel (${calc.miles} mi @ $0.50)`, calc.travel, false);
+  if (calc.discount > 0) totalsRow('Discount', -calc.discount, false);
+  if (calc.taxPct > 0) totalsRow(`Tax (${calc.taxPct}%)`, calc.tax, false);
+  y += 4;
+  doc.setDrawColor(...brandBlue);
+  doc.setLineWidth(1);
+  doc.line(pageWidth - margin - 150, y - 14, pageWidth - margin, y - 14);
+  totalsRow('TOTAL', calc.total, true);
+
+  // Notes
+  if (quoteNotes) {
+    y += 20;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(...darkGray);
+    doc.text('NOTES', margin, y);
+    y += 16;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(80, 80, 80);
+    const split = doc.splitTextToSize(quoteNotes, pageWidth - margin * 2);
+    doc.text(split, margin, y);
+    y += split.length * 13;
+  }
+
+  // Footer
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text('This quote is valid for 30 days from the date above. A signed agreement and deposit are required to reserve your date.', margin, 740);
+    doc.text('Braxton Media Co  •  braxtonmediaco@gmail.com  •  instagram.com/braxtonmediaco', margin, 754);
+  }
+
+  return doc;
+}
+
+let _cachedPreviewUrl = null;
+
+async function previewPDF() {
+  const doc = await buildPDF();
+  if (_cachedPreviewUrl) URL.revokeObjectURL(_cachedPreviewUrl);
+  _cachedPreviewUrl = doc.output('bloburl');
+  document.getElementById('previewFrame').src = _cachedPreviewUrl;
+  document.getElementById('previewModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePreview() {
+  document.getElementById('previewModal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+async function downloadPDF() {
+  const doc = await buildPDF();
+  const clientName = document.getElementById('clientName').value || 'Client';
+  const fileClient = clientName.replace(/[^a-z0-9]/gi, '_');
+  doc.save(`BraxtonMediaCo_Quote_${fileClient}.pdf`);
+}
+
+document.getElementById('previewModal').addEventListener('click', e => {
+  if (e.target.id === 'previewModal') closePreview();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePreview();
+});
+
+// ---------- RESET ----------
+function resetAll() {
+  if (!confirm('Reset the entire quote?')) return;
+  document.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=date], textarea').forEach(el => el.value = '');
+  document.getElementById('travelMiles').value = 0;
+  document.getElementById('discountFlat').value = 0;
+  document.getElementById('taxPercent').value = 0;
+  document.querySelectorAll('.type-btn').forEach(b => { b.classList.remove('selected'); b.style.borderColor=''; b.style.background=''; b.style.color=''; });
+  document.getElementById('photoSection').classList.add('hidden');
+  document.getElementById('videoSection').classList.add('hidden');
+  document.getElementById('photoCategory').value = '';
+  document.getElementById('videoCategory').value = '';
+  document.getElementById('photoPackages').innerHTML = '';
+  document.getElementById('videoPackages').innerHTML = '';
+  document.querySelectorAll('.addon-row').forEach(r => r.classList.remove('selected'));
+  document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);
+  document.querySelectorAll('[id^=qty-]').forEach(q => { q.value = 1; q.classList.add('hidden'); });
+  state = { types: new Set(), photoCategory: null, photoTier: null, videoCategory: null, videoTier: null, addons: {}, customItems: [] };
+  renderCustomItems();
+  recalc();
+}
+</script>
+</body>
+</html>
