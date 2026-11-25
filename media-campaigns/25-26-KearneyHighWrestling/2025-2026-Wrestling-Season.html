@@ -27,10 +27,10 @@
         .glass:hover { background: rgba(42, 46, 229, 0.1); border: 1px solid rgba(42, 46, 229, 0.5); box-shadow: 0 0 30px rgba(42, 46, 229, 0.2); }
         
         /* Masonry Grid Setup for Campaign Photos */
-        .masonry { column-count: 1; column-gap: 1.5rem; }
+        .masonry { column-count: 1; column-gap: 1rem; }
         @media (min-width: 768px) { .masonry { column-count: 2; } }
         @media (min-width: 1024px) { .masonry { column-count: 3; } }
-        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
         /* Hide the "coming soon" note once photos are added */
         #photo-gallery:not(:empty) + .photo-empty { display: none; }
         #photo-gallery:empty { display: none; }
@@ -90,7 +90,7 @@
     <main class="min-h-screen flex flex-col justify-between relative z-10">
         
         <!-- CAMPAIGN HERO SECTION -->
-        <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <header class="relative pt-28 pb-10 lg:pt-36 lg:pb-14 overflow-hidden">
             <!-- Hero Background Image (Swap this out!) -->
             <div class="absolute inset-0 z-0">
                 <img src="pictures/cover.JPG" alt="" class="w-full h-full object-cover opacity-30" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PC9zdmc+'">
@@ -100,25 +100,25 @@
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 fade-in">
                 <!-- Back Button -->
-                <a href="../../portfolio.html" class="inline-flex items-center text-slate-400 hover:text-white hover:bg-brand-gray/20 px-4 py-2 rounded-full transition-all mb-8 md:mb-12 border border-transparent hover:border-brand-gray/30">
+                <a href="../../portfolio.html" class="inline-flex items-center text-slate-400 hover:text-white hover:bg-brand-gray/20 px-4 py-2 rounded-full transition-all mb-5 md:mb-6 border border-transparent hover:border-brand-gray/30">
                     <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Portfolio
                 </a>
 
                 <div class="max-w-4xl">
-                    <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Sports Media Package</span>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">2025-2026 Kearney High Wrestling Season</h1>
+                    <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">Sports Media Package</span>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">2025-2026 Kearney High Wrestling Season</h1>
                     <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">A multi-month coverage of Kearney High wrestling season, delivering high-impact video highlights, gameday posts, and social media assets to boost team engagement.</p>
                 </div>
             </div>
         </header>
 
         <!-- PROJECT OVERVIEW SECTION -->
-        <section class="py-16 md:py-24">
+        <section class="py-8 md:py-12">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="grid md:grid-cols-3 gap-12">
+                <div class="grid md:grid-cols-3 gap-8">
                     
                     <!-- Text Content -->
-                    <div class="md:col-span-2 space-y-6">
+                    <div class="md:col-span-2 space-y-4">
                         <h2 class="text-3xl font-bold text-white flex items-center">
                             <i data-lucide="info" class="w-6 h-6 mr-3 text-brand-blue"></i> Project Overview
                         </h2>
@@ -131,10 +131,10 @@
                     </div>
 
                     <!-- Project Details Card -->
-                    <div class="glass p-8 rounded-2xl h-fit border border-brand-gray/20">
-                        <h3 class="text-xl font-bold text-white mb-6 border-b border-brand-gray/30 pb-4">Campaign Details</h3>
+                    <div class="glass p-6 rounded-2xl h-fit border border-brand-gray/20">
+                        <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-gray/30 pb-3">Campaign Details</h3>
                         
-                        <div class="space-y-4">
+                        <div class="space-y-3">
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Client</span>
                                 <span class="text-white font-medium">Kearney High Wrestling Team</span>
@@ -162,9 +162,9 @@
         </section>
 
         <!-- VIDEO DELIVERABLES SECTION -->
-        <section class="py-16 md:py-24">
+        <section class="py-8 md:py-12">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Video Deliverables
                     </h2>
@@ -172,154 +172,57 @@
                 </div>
 
                 <!-- Replace these src links with your campaign YouTube embed links -->
-                <div class="grid lg:grid-cols-2 gap-8">
+                <div class="grid lg:grid-cols-2 gap-6">
                     <!-- Video 1 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/bDHH41Fj-j4?si=9ql-CGtsqCYto-5H" title="Main Highlight Reel" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/WgxjRwiJb9M?si=ZZtBxqpyxIqECris" title="Main Highlight Reel" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Main Highlight Reel</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">A 3-minute compilation of the best moments from the season.</p>
+                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Season Teaser</h4>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Kearney High Wrestling beginning of season teaser.</p>
                     </div>
 
                     <!-- Video 2 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/T3ULkfSgBvY?si=jA58D9q-3fQJbHyD" title="Social Media Cut (Vertical/Reel Format)" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/CXB3Tpn2EAo?si=qKeqEQFc7D-NogB0" title="Social Media Cut (Vertical/Reel Format)" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Social Media Cut (Vertical/Reel Format)</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">A fast-paced, high-energy cut specifically formatted for Instagram Reels and TikTok.</p>
+                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney vs. Grand Island Stage Dual</h4>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Video recapping Kearney High vs. Grand Island Stage dual.</p>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="glass p-2 rounded-2xl border border-brand-gray/20">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/wElhLEluNSw?si=MZ26Qsad3MbT-nhY" title="Social Media Cut (Vertical/Reel Format)" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney High State Duals Teaser</h4>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Video hyping up people about state dual championships.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- GAMEDAY GRAPHICS SECTION -->
-        <section class="py-16 md:py-24" id="gameday-graphics">
+        <section class="py-8 md:py-12" id="gameday-graphics">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="image" class="w-8 h-8 mr-4 text-brand-blue"></i> Gameday Graphics
                     </h2>
                     <p class="text-slate-400 mt-2">Gameday posts designed for each event. Click any graphic to view it in full screen.</p>
                 </div>
 
-                <!-- Event 1: GI Stage Dual -->
-                <div class="mb-14 last:mb-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 flex items-center">
-                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3">1</span>
-                        GI Stage Dual
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/1-GI-StageDual/Boys.jpg" aria-label="View full screen: GI Stage Dual – Boys gameday graphic">
-                            <img src="pictures/Gameday-Posts/1-GI-StageDual/Boys.jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="GI Stage Dual – Boys gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/1-GI-StageDual/Girls.jpg" aria-label="View full screen: GI Stage Dual – Girls gameday graphic">
-                            <img src="pictures/Gameday-Posts/1-GI-StageDual/Girls.jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="GI Stage Dual – Girls gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Event 2: Lincoln East -->
-                <div class="mb-14 last:mb-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 flex items-center">
-                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3">2</span>
-                        Lincoln East
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/2-Lincoln-East/1%20-%20Boys.jpg" aria-label="View full screen: Lincoln East – Boys gameday graphic">
-                            <img src="pictures/Gameday-Posts/2-Lincoln-East/1%20-%20Boys.jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Lincoln East – Boys gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/2-Lincoln-East/2%20-%20Girls%20(Chenille).jpg" aria-label="View full screen: Lincoln East – Girls gameday graphic (chenille)">
-                            <img src="pictures/Gameday-Posts/2-Lincoln-East/2%20-%20Girls%20(Chenille).jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Lincoln East – Girls gameday graphic (chenille)" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Event 3: Tournament of Champs -->
-                <div class="mb-14 last:mb-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 flex items-center">
-                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3">3</span>
-                        Tournament of Champs
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/3-Tournament-of-Champs/1%20-%20Boys.jpg" aria-label="View full screen: Tournament of Champs – Boys gameday graphic">
-                            <img src="pictures/Gameday-Posts/3-Tournament-of-Champs/1%20-%20Boys.jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Tournament of Champs – Boys gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/3-Tournament-of-Champs/2%20-%20Girls.jpg" aria-label="View full screen: Tournament of Champs – Girls gameday graphic">
-                            <img src="pictures/Gameday-Posts/3-Tournament-of-Champs/2%20-%20Girls.jpg" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Tournament of Champs – Girls gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Event 4: North Platte Dual -->
-                <div class="mb-14 last:mb-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 flex items-center">
-                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3">4</span>
-                        North Platte Dual
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/4-NorthPlatte-Dual/1%20-%20Boys.png" aria-label="View full screen: North Platte Dual – Boys gameday graphic">
-                            <img src="pictures/Gameday-Posts/4-NorthPlatte-Dual/1%20-%20Boys.png" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="North Platte Dual – Boys gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/4-NorthPlatte-Dual/2%20-%20Girls%20(Chenille).png" aria-label="View full screen: North Platte Dual – Girls gameday graphic (chenille)">
-                            <img src="pictures/Gameday-Posts/4-NorthPlatte-Dual/2%20-%20Girls%20(Chenille).png" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="North Platte Dual – Girls gameday graphic (chenille)" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Event 5: Heartland Tourney -->
-                <div class="mb-14 last:mb-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 flex items-center">
-                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3">5</span>
-                        Heartland Tourney
-                    </h3>
-                    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/5-HeartlandTourney/1%20-%20Boys.png" aria-label="View full screen: Heartland Tourney – Boys gameday graphic">
-                            <img src="pictures/Gameday-Posts/5-HeartlandTourney/1%20-%20Boys.png" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Heartland Tourney – Boys gameday graphic" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="pictures/Gameday-Posts/5-HeartlandTourney/2%20-%20Girls%20(Chenille).png" aria-label="View full screen: Heartland Tourney – Girls gameday graphic (chenille)">
-                            <img src="pictures/Gameday-Posts/5-HeartlandTourney/2%20-%20Girls%20(Chenille).png" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="Heartland Tourney – Girls gameday graphic (chenille)" loading="lazy" data-fallback>
-                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
+                <!-- Campaigns are rendered from the CAMPAIGNS list in the script at the bottom of this file.
+                     To add one, add a new entry there. Two campaigns sit side by side on large screens. -->
+                <div id="campaign-grid" class="grid lg:grid-cols-2 gap-x-6 gap-y-8"></div>
             </div>
         </section>
 
         <!-- PHOTOGRAPHY GALLERY SECTION -->
-        <section class="py-16 md:py-24" id="photography">
+        <section class="py-8 md:py-12" id="photography">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="mb-12">
+                <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
                         <i data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photography Showcase
                     </h2>
@@ -334,15 +237,15 @@
                         </button>
                     </div>
                 --></div>
-                <p class="photo-empty text-slate-500 text-center py-12 border border-dashed border-brand-gray/40 rounded-2xl">Action photos from the season are coming soon.</p>
+                <p class="photo-empty text-slate-500 text-center py-8 border border-dashed border-brand-gray/40 rounded-2xl">Action photos from the season are coming soon.</p>
             </div>
         </section>
 
         <!-- CALL TO ACTION -->
-        <section class="py-20 relative overflow-hidden">
+        <section class="py-12 relative overflow-hidden">
             <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Need a comprehensive media package?</h2>
-                <p class="text-xl text-slate-300 mb-10">Let's work together to tell your story with high-quality videography and photography tailored for your brand.</p>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4">Need a comprehensive media package?</h2>
+                <p class="text-xl text-slate-300 mb-6">Let's work together to tell your story with high-quality videography and photography tailored for your brand.</p>
                 <a href="../../contact.html" class="inline-block bg-brand-blue hover:bg-white hover:text-brand-blue text-white px-10 py-4 rounded-full font-black text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(42,46,229,0.5)]">
                     Start a Project
                 </a>
@@ -350,12 +253,12 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="bg-brand-dark border-t border-brand-gray/30 py-12 mt-auto relative z-10">
+        <footer class="bg-brand-dark border-t border-brand-gray/30 py-8 mt-auto relative z-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <div class="flex justify-center items-center mb-8">
+                <div class="flex justify-center items-center mb-5">
                     <img src="../../logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
                 </div>
-                <div class="flex justify-center space-x-8 mb-8">
+                <div class="flex justify-center space-x-8 mb-5">
                     <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                     </a>
@@ -387,6 +290,121 @@
     </div>
 
     <script>
+        // ============================================================
+        // GAMEDAY GRAPHIC CAMPAIGNS: add new ones here
+        // ------------------------------------------------------------
+        // To add a campaign, copy one block below and paste it at the end of the list.
+        //   title:  name shown above the graphics
+        //   folder: path to the folder, ending in "/"
+        //   images: one entry per graphic. file = filename (plain text, spaces are fine),
+        //           label = short description used for the caption and alt text
+        // Numbering and layout are automatic. Remember the comma between blocks.
+        // ============================================================
+        const GAMEDAY_FOLDER = 'pictures/Gameday-Posts/';
+        const CAMPAIGNS = [
+            {
+                title: 'GI Stage Dual',
+                folder: '1-GI-StageDual/',
+                images: [
+                    { file: 'Boys.jpg',  label: 'Boys' },
+                    { file: 'Girls.jpg', label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Lincoln East',
+                folder: '2-Lincoln-East/',
+                images: [
+                    { file: '1 - Boys.jpg',               label: 'Boys' },
+                    { file: '2 - Girls (Chenille).jpg',   label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Tournament of Champs',
+                folder: '3-Tournament-of-Champs/',
+                images: [
+                    { file: '1 - Boys.jpg',  label: 'Boys' },
+                    { file: '2 - Girls.jpg', label: 'Girls' }
+                ]
+            },
+            {
+                title: 'North Platte Dual',
+                folder: '4-NorthPlatte-Dual/',
+                images: [
+                    { file: '1 - Boys.png',               label: 'Boys' },
+                    { file: '2 - Girls (Chenille).png',   label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Heartland Tourney',
+                folder: '5-HeartlandTourney/',
+                images: [
+                    { file: '1 - Boys.png',               label: 'Boys' },
+                    { file: '2 - Girls (Chenille).png',   label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Colombus Dual',
+                folder: '6-colombusDual/',
+                images: [
+                    { file: 'Boys.jpg',               label: 'Boys' },
+                    { file: 'Girls.jpg',              label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Duals Tournament',
+                folder: '7-dualstourney/',
+                images: [
+                    { file: 'Boys.jpg',               label: 'Boys' },
+                    { file: 'Girls.jpg',              label: 'Girls' }
+                ]
+            },
+            {
+                title: 'Papillion Invitational',
+                folder: '8-invitational/',
+                images: [
+                    { file: '1 - Boys.jpg',               label: 'Boys' },
+                    { file: '2 - Girls.jpg',              label: 'Girls' }
+                ]
+            },
+                        {
+                title: 'State Duals',
+                folder: '9-stateduals/',
+                images: [
+                    { file: 'Boys.jpg',               label: 'Boys' },
+                    { file: 'Girls.png',              label: 'Girls' }
+                ]
+            },
+        ];
+
+        // Builds the campaign cards (runs before the lightbox collects its images)
+        (function renderCampaigns() {
+            const grid = document.getElementById('campaign-grid');
+            if (!grid) return;
+            const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+            grid.innerHTML = CAMPAIGNS.map((c, i) => {
+                const shots = c.images.map(img => {
+                    const url = encodeURI(GAMEDAY_FOLDER + c.folder + img.file);
+                    const alt = `${c.title} – ${img.label} gameday graphic`;
+                    return `
+                        <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="${esc(url)}" aria-label="View full screen: ${esc(alt)}">
+                            <img src="${esc(url)}" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="${esc(alt)}" loading="lazy" data-fallback>
+                            <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
+                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
+                            </span>
+                        </button>`;
+                }).join('');
+                return `
+                <div class="min-w-0">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-3 flex items-center">
+                        <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-sm font-black w-9 h-9 rounded-full inline-flex items-center justify-center mr-3 shrink-0">${i + 1}</span>
+                        ${esc(c.title)}
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-4">${shots}
+                    </div>
+                </div>`;
+            }).join('');
+        })();
+
         // Initialize Lucide Icons
         lucide.createIcons();
 
