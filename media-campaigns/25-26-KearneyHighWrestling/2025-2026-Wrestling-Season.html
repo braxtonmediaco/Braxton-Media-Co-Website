@@ -3,41 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025-2026 Kearney High Wrestling Season | Braxton Media Co</title>
-    <meta name="description" content="Highlight videos, gameday graphics, and photography from the 2025-2026 Kearney High wrestling season by Braxton Media Co.">
+    <title>2025–2026 Kearney High Wrestling Season | Braxton Media Co</title>
+    <meta name="description" content="Highlight videos, gameday graphics, and photography from the 2025–2026 Kearney High wrestling season by Braxton Media Co.">
     <link rel="icon" type="image/svg+xml" href="../../logos/icon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://unpkg.com/lucide@0.468.0"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], }, colors: { brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212', accent: '#2A2EE5', light: '#f8fafc', } } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        brand: { blue: '#2A2EE5', gray: '#4F4F51', dark: '#121212' }
+                    }
+                }
+            }
+        };
     </script>
     <style>
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #4F4F51; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #2A2EE5; }
+
         .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
         .nav-link.active { color: #2A2EE5; position: relative; }
-        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2A2EE5; box-shadow: 0 0 10px #2A2EE5; transition: all 0.3s ease; }
-        .glass { background: rgba(30, 30, 30, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(79, 79, 81, 0.3); }
-        .glass:hover { background: rgba(42, 46, 229, 0.1); border: 1px solid rgba(42, 46, 229, 0.5); box-shadow: 0 0 30px rgba(42, 46, 229, 0.2); }
-        
-        /* Masonry Grid Setup for Campaign Photos */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2A2EE5;
+            box-shadow: 0 0 10px #2A2EE5;
+            transition: all 0.3s ease;
+        }
+
+        .glass {
+            background: rgba(30, 30, 30, 0.4);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(79, 79, 81, 0.3);
+        }
+        .glass:hover {
+            background: rgba(42, 46, 229, 0.1);
+            border: 1px solid rgba(42, 46, 229, 0.5);
+            box-shadow: 0 0 30px rgba(42, 46, 229, 0.2);
+        }
+
+        /* Masonry grid for photos */
         .masonry { column-count: 1; column-gap: 1rem; }
-        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 768px)  { .masonry { column-count: 2; } }
         @media (min-width: 1024px) { .masonry { column-count: 3; } }
         .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+
         /* Hide the "coming soon" note once photos are added */
         #photo-gallery:not(:empty) + .photo-empty { display: none; }
         #photo-gallery:empty { display: none; }
-        @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; opacity: 1; } * { scroll-behavior: auto !important; } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { animation: none; opacity: 1; }
+            * { scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-slate-300 font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-brand-blue focus:text-white focus:px-4 focus:py-2 focus:rounded-full">Skip to main content</a>
 
     <!-- Global Background Glow -->
     <div class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
@@ -46,12 +87,12 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-gray/30">
+    <nav aria-label="Main" class="fixed w-full z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-gray/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
-                <div class="flex-shrink-0 flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
+                <div class="flex-shrink-0 flex items-center hover:scale-105 transition-transform duration-300">
                     <a href="../../index.html" aria-label="Go to Home">
-                        <img src="../../logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
+                        <img src="../../logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co" class="h-14 md:h-20 w-auto drop-shadow-[0_0_10px_rgba(42,46,229,0.4)]" onerror=\"this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'\">
                     </a>
                 </div>
                 
@@ -63,18 +104,18 @@
                 </div>
 
                 <div class="flex md:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-white hover:text-brand-blue p-2 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false" id="mobile-menu-btn">
-                        <i data-lucide="menu" class="h-8 w-8"></i>
+                    <button type="button" id="mobile-menu-btn" class="text-white hover:text-brand-blue p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i aria-hidden="true" data-lucide="menu" class="h-8 w-8"></i>
                     </button>
                 </div>
             </div>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full shadow-2xl transition-all">
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gray/30 absolute w-full shadow-2xl">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="../../portfolio.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Portfolio</a>
+                <a href="../../portfolio.html" aria-current="page" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Portfolio</a>
                 <a href="../../about.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">About Me</a>
-                <a href="../../downloads.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Downloads</a>
+                <a href="../../downloads.html" class="block w-full text-left px-4 py-3 text-white hover:bg-brand-gray/20 rounded-xl font-bold transition-colors">Download Links</a>
                 <a href="../../contact.html" class="block w-full text-center px-4 py-3 mt-4 bg-brand-blue text-white font-black hover:bg-white hover:text-brand-blue rounded-xl transition-all duration-300">Contact</a>
             </div>
         </div>
@@ -82,18 +123,18 @@
 
     <!-- Floating Home Button -->
     <div class="hidden md:block fixed bottom-8 right-8 z-40">
-        <a href="../../index.html" class="block w-16 h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40 group" aria-label="Return to Home">
-            <img src="../../logos/icon.svg" alt="Braxton Media Icon" class="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg=='">
+        <a href="../../index.html" class="w-16 h-16 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-2xl hover:shadow-brand-blue/30 border border-brand-gray/40 group" aria-label="Return to Home">
+            <img src="../../logos/icon.svg" alt="Braxton Media Icon" class="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all" onerror=\"this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg=='\">
         </a>
     </div>
 
-    <main class="min-h-screen flex flex-col justify-between relative z-10">
+    <main id="main-content" class="relative z-10">
         
         <!-- CAMPAIGN HERO SECTION -->
         <header class="relative pt-28 pb-10 lg:pt-36 lg:pb-14 overflow-hidden">
-            <!-- Hero Background Image (Swap this out!) -->
+            <!-- Hero Background Image -->
             <div class="absolute inset-0 z-0">
-                <img src="pictures/cover.JPG" alt="" class="w-full h-full object-cover opacity-30" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PC9zdmc+'">
+                <img src="pictures/cover.JPG" alt="" class="w-full h-full object-cover opacity-30" onerror=\"this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PC9zdmc+'\">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-transparent to-brand-dark opacity-80"></div>
             </div>
@@ -101,13 +142,13 @@
             <div class="relative z-10 max-w-7xl mx-auto px-4 fade-in">
                 <!-- Back Button -->
                 <a href="../../portfolio.html" class="inline-flex items-center text-slate-400 hover:text-white hover:bg-brand-gray/20 px-4 py-2 rounded-full transition-all mb-5 md:mb-6 border border-transparent hover:border-brand-gray/30">
-                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Portfolio
+                    <i aria-hidden="true" data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Portfolio
                 </a>
 
                 <div class="max-w-4xl">
                     <span class="bg-brand-blue/20 text-brand-blue border border-brand-blue/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">Sports Media Package</span>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">2025-2026 Kearney High Wrestling Season</h1>
-                    <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">A multi-month coverage of Kearney High wrestling season, delivering high-impact video highlights, gameday posts, and social media assets to boost team engagement.</p>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">2025–2026 Kearney High Wrestling Season</h1>
+                    <p class="text-lg md:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">Season-long coverage of Kearney High wrestling, delivering high-impact video highlights, gameday posts, and social media assets to boost team engagement.</p>
                 </div>
             </div>
         </header>
@@ -120,10 +161,10 @@
                     <!-- Text Content -->
                     <div class="md:col-span-2 space-y-4">
                         <h2 class="text-3xl font-bold text-white flex items-center">
-                            <i data-lucide="info" class="w-6 h-6 mr-3 text-brand-blue"></i> Project Overview
+                            <i aria-hidden="true" data-lucide="info" class="w-6 h-6 mr-3 text-brand-blue"></i> Project Overview
                         </h2>
                         <p class="text-slate-300 text-lg leading-relaxed">
-                           This media campaign covered all of the Kearney High Wrestling events from start to finish. From eye-catching graphics for every game day to videos recapping the entire event, each piece was designed to capture the energy of the sport and give athletes, families, and fans a way to relive the moments that mattered. This was season-long coverage, following the team from the first match to the final whistle.
+                           This media campaign covered every Kearney High wrestling event from start to finish. From eye-catching graphics for every gameday to videos recapping the entire event, each piece was designed to capture the energy of the sport and give athletes, families, and fans a way to relive the moments that mattered. It was season-long coverage, following the team from the first match to the final whistle.
                         </p>
                         <p class="text-slate-300 text-lg leading-relaxed">
                             Every meet got its own custom graphic package, including matchup announcements and final score posts, while recap videos brought the action to life with key matches and standout performances. Together, they formed a complete visual record of the season that the team and its supporters can look back on for years to come.
@@ -152,7 +193,7 @@
                             </div>
                             <div>
                                 <span class="block text-sm text-slate-500 font-bold uppercase tracking-wider">Date</span>
-                                <span class="text-white font-medium">Winter 25-26</span>
+                                <span class="text-white font-medium">Winter 2025–2026</span>
                             </div>
                         </div>
                     </div>
@@ -166,38 +207,38 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
-                        <i data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Video Deliverables
+                        <i aria-hidden="true" data-lucide="video" class="w-8 h-8 mr-4 text-brand-blue"></i> Video Deliverables
                     </h2>
                     <p class="text-slate-400 mt-2">The primary video content produced for this campaign.</p>
                 </div>
 
-                <!-- Replace these src links with your campaign YouTube embed links -->
+                <!-- To swap a video, replace the YouTube ID in the embed URL -->
                 <div class="grid lg:grid-cols-2 gap-6">
                     <!-- Video 1 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/WgxjRwiJb9M?si=ZZtBxqpyxIqECris" title="Main Highlight Reel" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/WgxjRwiJb9M" title="Season Teaser" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Season Teaser</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">Kearney High Wrestling beginning of season teaser.</p>
+                        <h3 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Season Teaser</h3>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Teaser for the start of the Kearney High wrestling season.</p>
                     </div>
 
                     <!-- Video 2 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/CXB3Tpn2EAo?si=qKeqEQFc7D-NogB0" title="Social Media Cut (Vertical/Reel Format)" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/CXB3Tpn2EAo" title="Kearney vs. Grand Island Stage Dual recap" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney vs. Grand Island Stage Dual</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">Video recapping Kearney High vs. Grand Island Stage dual.</p>
+                        <h3 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney vs. Grand Island Stage Dual</h3>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Video recapping the Kearney High vs. Grand Island Stage Dual.</p>
                     </div>
 
                     <!-- Video 3 -->
                     <div class="glass p-2 rounded-2xl border border-brand-gray/20">
                         <div class="aspect-video w-full rounded-xl overflow-hidden bg-brand-dark shadow-lg">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/wElhLEluNSw?si=MZ26Qsad3MbT-nhY" title="Social Media Cut (Vertical/Reel Format)" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/wElhLEluNSw" title="Kearney High State Duals Teaser" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <h4 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney High State Duals Teaser</h4>
-                        <p class="text-slate-400 text-sm ml-2 mb-2">Video hyping up people about state dual championships.</p>
+                        <h3 class="text-xl font-bold text-white mt-5 mb-2 ml-2">Kearney High State Duals Teaser</h3>
+                        <p class="text-slate-400 text-sm ml-2 mb-2">Teaser building hype for the state duals championship.</p>
                     </div>
                 </div>
             </div>
@@ -208,7 +249,7 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
-                        <i data-lucide="image" class="w-8 h-8 mr-4 text-brand-blue"></i> Gameday Graphics
+                        <i aria-hidden="true" data-lucide="image" class="w-8 h-8 mr-4 text-brand-blue"></i> Gameday Graphics
                     </h2>
                     <p class="text-slate-400 mt-2">Gameday posts designed for each event. Click any graphic to view it in full screen.</p>
                 </div>
@@ -224,7 +265,7 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="mb-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white flex items-center">
-                        <i data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photography Showcase
+                        <i aria-hidden="true" data-lucide="camera" class="w-8 h-8 mr-4 text-brand-blue"></i> Photography Showcase
                     </h2>
                     <p class="text-slate-400 mt-2">Click any image to view it in full screen.</p>
                 </div>
@@ -252,39 +293,39 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
-        <footer class="bg-brand-dark border-t border-brand-gray/30 py-8 mt-auto relative z-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <div class="flex justify-center items-center mb-5">
-                    <img src="../../logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'">
-                </div>
-                <div class="flex justify-center space-x-8 mb-5">
-                    <a href="https://instagram.com/braxtonmediaco" target="_blank" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" aria-label="YouTube" class="text-slate-400 hover:text-[#FF0000] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                </div>
-                <p class="text-slate-600 text-sm font-medium">© 2026 Braxton Media Co. All rights reserved.</p>
-            </div>
-        </footer>
-
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-gray/30 py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-5">
+                <img src="../../logos/Bottom%20Third%20Logo.svg" alt="Braxton Media Co Logo" class="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy" onerror=\"this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiPjx0ZXh0IHk9IjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPkJSQVhUT048L3RleHQ+PC9zdmc+'\">
+            </div>
+            <div class="flex justify-center space-x-8 mb-5">
+                <a href="https://instagram.com/braxtonmediaco" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61576976038649" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="https://www.youtube.com/@BraxtonMediaCo" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-slate-400 hover:text-[#FF0000] transition-colors duration-300 transform hover:-translate-y-1 hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+            <p class="text-slate-600 text-sm font-medium">© 2026 Braxton Media Co. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- LIGHTBOX OVERLAY -->
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 transition-opacity duration-300 opacity-0" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="if(event.target === this) closeLightbox()">
-        <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Close image viewer">
-            <i data-lucide="x" class="w-8 h-8 md:w-12 md:h-12"></i>
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 transition-opacity duration-300 opacity-0" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button type="button" id="lightbox-close" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Close image viewer">
+            <i aria-hidden="true" data-lucide="x" class="w-8 h-8 md:w-12 md:h-12"></i>
         </button>
-        <button type="button" id="lightbox-prev" onclick="stepLightbox(-1)" class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Previous image">
-            <i data-lucide="chevron-left" class="w-10 h-10 md:w-12 md:h-12"></i>
+        <button type="button" id="lightbox-prev" class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Previous image">
+            <i aria-hidden="true" data-lucide="chevron-left" class="w-10 h-10 md:w-12 md:h-12"></i>
         </button>
-        <button type="button" id="lightbox-next" onclick="stepLightbox(1)" class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Next image">
-            <i data-lucide="chevron-right" class="w-10 h-10 md:w-12 md:h-12"></i>
+        <button type="button" id="lightbox-next" class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-brand-blue transition-colors z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded" aria-label="Next image">
+            <i aria-hidden="true" data-lucide="chevron-right" class="w-10 h-10 md:w-12 md:h-12"></i>
         </button>
         <img id="lightbox-img" src="" class="max-h-full max-w-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95" alt="">
     </div>
@@ -297,7 +338,7 @@
         //   title:  name shown above the graphics
         //   folder: path to the folder, ending in "/"
         //   images: one entry per graphic. file = filename (plain text, spaces are fine),
-        //           label = short description used for the caption and alt text
+        //           label = short description used in the alt text
         // Numbering and layout are automatic. Remember the comma between blocks.
         // ============================================================
         const GAMEDAY_FOLDER = 'pictures/Gameday-Posts/';
@@ -314,8 +355,8 @@
                 title: 'Lincoln East',
                 folder: '2-Lincoln-East/',
                 images: [
-                    { file: '1 - Boys.jpg',               label: 'Boys' },
-                    { file: '2 - Girls (Chenille).jpg',   label: 'Girls' }
+                    { file: '1 - Boys.jpg',             label: 'Boys' },
+                    { file: '2 - Girls (Chenille).jpg', label: 'Girls' }
                 ]
             },
             {
@@ -330,57 +371,57 @@
                 title: 'North Platte Dual',
                 folder: '4-NorthPlatte-Dual/',
                 images: [
-                    { file: '1 - Boys.png',               label: 'Boys' },
-                    { file: '2 - Girls (Chenille).png',   label: 'Girls' }
+                    { file: '1 - Boys.png',             label: 'Boys' },
+                    { file: '2 - Girls (Chenille).png', label: 'Girls' }
                 ]
             },
             {
                 title: 'Heartland Tourney',
                 folder: '5-HeartlandTourney/',
                 images: [
-                    { file: '1 - Boys.png',               label: 'Boys' },
-                    { file: '2 - Girls (Chenille).png',   label: 'Girls' }
+                    { file: '1 - Boys.png',             label: 'Boys' },
+                    { file: '2 - Girls (Chenille).png', label: 'Girls' }
                 ]
             },
             {
-                title: 'Colombus Dual',
-                folder: '6-colombusDual/',
+                title: 'Columbus Dual',
+                folder: '6-colombusDual/', // folder name keeps its original spelling so the path still resolves
                 images: [
-                    { file: 'Boys.jpg',               label: 'Boys' },
-                    { file: 'Girls.jpg',              label: 'Girls' }
+                    { file: 'Boys.jpg',  label: 'Boys' },
+                    { file: 'Girls.jpg', label: 'Girls' }
                 ]
             },
             {
                 title: 'Duals Tournament',
                 folder: '7-dualstourney/',
                 images: [
-                    { file: 'Boys.jpg',               label: 'Boys' },
-                    { file: 'Girls.jpg',              label: 'Girls' }
+                    { file: 'Boys.jpg',  label: 'Boys' },
+                    { file: 'Girls.jpg', label: 'Girls' }
                 ]
             },
             {
                 title: 'Papillion Invitational',
                 folder: '8-invitational/',
                 images: [
-                    { file: '1 - Boys.jpg',               label: 'Boys' },
-                    { file: '2 - Girls.jpg',              label: 'Girls' }
+                    { file: '1 - Boys.jpg',  label: 'Boys' },
+                    { file: '2 - Girls.jpg', label: 'Girls' }
                 ]
             },
-                        {
+            {
                 title: 'State Duals',
                 folder: '9-stateduals/',
                 images: [
-                    { file: 'Boys.jpg',               label: 'Boys' },
-                    { file: 'Girls.png',              label: 'Girls' }
+                    { file: 'Boys.jpg',  label: 'Boys' },
+                    { file: 'Girls.png', label: 'Girls' }
                 ]
-            },
+            }
         ];
 
         // Builds the campaign cards (runs before the lightbox collects its images)
         (function renderCampaigns() {
             const grid = document.getElementById('campaign-grid');
             if (!grid) return;
-            const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+            const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             grid.innerHTML = CAMPAIGNS.map((c, i) => {
                 const shots = c.images.map(img => {
                     const url = encodeURI(GAMEDAY_FOLDER + c.folder + img.file);
@@ -389,7 +430,7 @@
                         <button type="button" class="gallery-item glass rounded-2xl overflow-hidden group cursor-pointer relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue" data-full="${esc(url)}" aria-label="View full screen: ${esc(alt)}">
                             <img src="${esc(url)}" class="w-full h-auto object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" alt="${esc(alt)}" loading="lazy" data-fallback>
                             <span class="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                                <i data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
+                                <i aria-hidden="true" data-lucide="maximize" class="text-white w-10 h-10 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300"></i>
                             </span>
                         </button>`;
                 }).join('');
@@ -408,15 +449,15 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
-            const isHidden = menu.classList.toggle('hidden');
-            if (btn) btn.setAttribute('aria-expanded', String(!isHidden));
-        }
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
 
-        // Placeholder for any image that fails to load
+        // Placeholder for any gallery image that fails to load
         const PLACEHOLDER = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUxZTFlIi8+PC9zdmc+";
         function applyFallback(img) {
             if (img.dataset.failed) return;
@@ -431,9 +472,13 @@
         // Lightbox (works across every gallery item, in page order)
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
         const items = Array.from(document.querySelectorAll('.gallery-item'));
         let current = -1;
         let lastFocused = null;
+        let closeTimer = null;
 
         function showImage(index) {
             current = (index + items.length) % items.length;
@@ -441,19 +486,20 @@
             lightboxImg.src = items[current].dataset.full;
             lightboxImg.alt = thumb ? thumb.alt : '';
             const multi = items.length > 1;
-            document.getElementById('lightbox-prev').classList.toggle('hidden', !multi);
-            document.getElementById('lightbox-next').classList.toggle('hidden', !multi);
+            lightboxPrev.classList.toggle('hidden', !multi);
+            lightboxNext.classList.toggle('hidden', !multi);
         }
 
         function openLightbox(index) {
-            lastFocused = document.activeElement;
+            clearTimeout(closeTimer);
+            if (lightbox.classList.contains('hidden')) lastFocused = document.activeElement;
             showImage(index);
             lightbox.classList.remove('hidden');
             setTimeout(() => {
                 lightbox.classList.remove('opacity-0');
                 lightboxImg.classList.remove('scale-95');
                 lightboxImg.classList.add('scale-100');
-                lightbox.querySelector('button').focus();
+                lightboxClose.focus();
             }, 10);
             document.body.style.overflow = 'hidden';
         }
@@ -462,9 +508,10 @@
             lightbox.classList.add('opacity-0');
             lightboxImg.classList.remove('scale-100');
             lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
+            clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
                 lightbox.classList.add('hidden');
-                lightboxImg.src = '';
+                lightboxImg.removeAttribute('src');
                 document.body.style.overflow = '';
                 if (lastFocused) lastFocused.focus();
             }, 300);
@@ -473,12 +520,32 @@
         function stepLightbox(dir) { showImage(current + dir); }
 
         items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => stepLightbox(-1));
+        lightboxNext.addEventListener('click', () => stepLightbox(1));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 
         document.addEventListener('keydown', (e) => {
             if (lightbox.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeLightbox();
-            else if (e.key === 'ArrowLeft') stepLightbox(-1);
-            else if (e.key === 'ArrowRight') stepLightbox(1);
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                stepLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                stepLightbox(1);
+            } else if (e.key === 'Tab') {
+                // Keep keyboard focus inside the open lightbox
+                const focusable = [lightboxClose, lightboxPrev, lightboxNext].filter(btn => !btn.classList.contains('hidden'));
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     </script>
 </body>
